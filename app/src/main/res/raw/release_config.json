@@ -1,0 +1,12 @@
+{
+"app_update_url":"http://www.skyroam.com/ota/CheckVersion.php",
+"user_doc_url":"http://www.skyroam.com/appdoc/requestDocPage.php",
+"login_url":"http://s.skyroam.com/tologin.do",
+"ota_url":"http://www.skyroam.com/ota/OTACheckUpdate.php",
+"config_url":"http://client.skyroam.com.cn/app/config",
+"account_url":"http://s.skyroam.com/in/account.do",
+"update_timer":60,
+"faq_update_url":"http://www.skyroam.com/faq/FaqFileVersion.php",
+"login_page_action":"/login.do",
+  "account_base_url":"http://s.skyroam.com/"
+}

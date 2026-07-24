@@ -1,0 +1,12 @@
+{
+"app_update_url":"http://www.skyroam.com/ota_test/CheckVersion.php",
+"user_doc_url":"http://www.skyroam.com/appdoc_test/requestDocPage.php",
+"login_url":"http://test3.skyroam.com.cn:8005/ismp-ehall/tologin.do",
+"ota_url":"http://www.skyroam.com/ota_test/OTACheckUpdate.php",
+"config_url":"http://client.skyroam.com.cn/app/config",
+"account_url":"http://test3.skyroam.com.cn:8005/ismp-ehall/in/account.do",
+"update_timer":60,
+"faq_update_url":"http://www.skyroam.com/faq_test/FaqFileVersion.php",
+"login_page_action":"/login.do",
+"account_base_url":"http://test3.skyroam.com.cn:8005/ismp-ehall/"
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.xiaoi.shenzhen.ibotex;
+
+option java_multiple_files = true;
+option java_package="com.xiaoi.shenzhen.ibotex";
+option java_outer_classname="ReportSpeechStartedReqProtos";
+
+message ReportSpeechStartedReq {
+    string voiceTransactionId=1; //语音发声事务编号。
+    int64 duration=2; //发声时间长度。
+}
+

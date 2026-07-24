@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">动态壁纸</string>
+  <string name="somethingIsWrong">出现错误，请稍后再试。</string>
+  <string name="wallpaper_description">动态壁纸</string>
+  <string name="wallpaper_refresh_tile">换壁纸</string>
+</resources>
