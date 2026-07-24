@@ -1,8 +1,26 @@
-.gradle/
-build/
-local.properties
+# Android Studio / IntelliJ
 *.iml
+.gradle/
 .idea/
-.DS_Store
+build/
+app/build/
 captures/
 .externalNativeBuild
+local.properties
+
+# macOS
+.DS_Store
+
+# Gradle
+.gradle/
+
+# Logs
+*.log
+
+# OS
+Thumbs.db
+
+# Sensitive (uncomment if needed)
+# google-services.json
+# *.jks
+# *.keystore
