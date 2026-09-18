@@ -288,6 +288,7 @@ public class MyLiveWallpaperService extends WallpaperService implements ShutDown
     private Bitmap wallpaperBitmap;
     private long lastReloadTime = 0; // 上次 reloadWallpaper 的时间（防抖用）
     private boolean reloadInProgress = false; // 是否正在加载中（防抖用）
+    private boolean pinned = false; // 是否钉住当前壁纸（停止随机切换）
     private long lastDebugLogTime = 0; // 上次输出 [FALLBACK_DEBUG] 的时间（节流用）
     private long reloadStartTime = 0; // reloadWallpaper 开始时间（超时重置用）
     private final Handler handler = new Handler();
@@ -302,6 +303,11 @@ public class MyLiveWallpaperService extends WallpaperService implements ShutDown
       public void run()
       {
         // ✅ 无论是否可见，都换图
+        if (pinned) {
+            com.stupidbeauty.dynamicwallpaper.utils.FileLogger.i("Wallpaper", "[PIN] autoRefreshRunnable skipped (pinned=true)");
+            handler.postDelayed(this, 31 * 60 * 1000);
+            return;
+        }
         com.stupidbeauty.dynamicwallpaper.utils.FileLogger.i("Wallpaper", "[DEBUG] autoRefreshRunnable calling reloadWallpaper(false)");
         reloadWallpaper(false);
 
@@ -354,7 +360,7 @@ public class MyLiveWallpaperService extends WallpaperService implements ShutDown
 
     public void reloadWallpaper(boolean restoreFromSaved)
     {
-      com.stupidbeauty.dynamicwallpaper.utils.FileLogger.i("Wallpaper", "=== reloadWallpaper START, restoreFromSaved=" + restoreFromSaved + " ===");
+      com.stupidbeauty.dynamicwallpaper.utils.FileLogger.i("Wallpaper", "=== reloadWallpaper START, restoreFromSaved=" + restoreFromSaved + ", pinned=" + pinned + " ===");
       reloadStartTime = System.currentTimeMillis(); // 记录开始时间
       
       // 🔍 子任务-4 优化：第一时间检查缓存（在 handler.post 之前，避免等 queryImages）
@@ -610,6 +616,15 @@ public class MyLiveWallpaperService extends WallpaperService implements ShutDown
     public void onTouchEvent(MotionEvent event)
     {
       super.onTouchEvent(event);
+    }
+
+    public void setPinned(boolean pin) {
+      this.pinned = pin;
+      com.stupidbeauty.dynamicwallpaper.utils.FileLogger.i("Wallpaper", "[PIN] setPinned: " + pin);
+    }
+
+    public boolean isPinned() {
+      return pinned;
     }
   };
 

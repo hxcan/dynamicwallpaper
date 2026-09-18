@@ -2,6 +2,8 @@ package com.stupidbeauty.sisterfuture;
 
 import android.app.StatusBarManager;
 import com.stupidbeauty.hxlauncher.callback.AddQuickSettingsResultCallback;
+import com.stupidbeauty.hxlauncher.interfaces.ShutDownAt2100LogicInterface;
+import com.stupidbeauty.hxlauncher.logic.ShutDownAt2100Logic;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import android.graphics.drawable.Icon;
@@ -156,8 +158,9 @@ import com.stupidbeauty.lanime.Constants;
  * status bar and navigation/system bar) with user interaction.
  * 
  */
-public class SisterFutureActivity extends Activity implements TextToSpeech.OnInitListener
+public class SisterFutureActivity extends Activity implements TextToSpeech.OnInitListener, ShutDownAt2100LogicInterface
 {
+  private ShutDownAt2100Logic shutDownAt2100Logic= null; //!< Logic with shutdownat2100.
 @BindView(R.id.add_quick_settings_button)
 Button addQuickSettingsButton;
 
@@ -170,6 +173,9 @@ Button setWallpaperButton;
 
 @BindView(R.id.refresh_wallpaper_button)
 Button refreshWallpaperButton;
+
+@BindView(R.id.pinned_toggle_button)
+android.widget.Button pinnedToggleButton;
 
     
     private static final String DEFAULT_INPUT_TEXT = "君不见,黄河之水天上来,奔流到海不复回,君不见,高堂明镜悲白发,朝如青丝暮成雪,人生得意须尽欢,莫使金樽空对月";
@@ -896,6 +902,7 @@ private void loadCurrentWallpaperPreview() {
 		requestWindowFeature(Window.FEATURE_NO_TITLE); //不显示标题栏。
 		
 		setContentView(R.layout.sister_future); //显示界面。
+        shutDownAt2100Logic = new ShutDownAt2100Logic(SisterFutureActivity.this); //!< 初始化21点关机逻辑（仿照灵桌面新方式）。
 
         // 延迟再次加载预览，确保壁纸服务完成初始化（只读，不写入）
         new android.os.Handler(getMainLooper()).postDelayed(new Runnable() {
@@ -949,6 +956,50 @@ private void loadCurrentWallpaperPreview() {
                     return true; // 消耗事件
                 }
                 return false;
+            }
+        });
+
+	    // 同步钉住状态到按钮 UI（用大按钮代替 Switch，更明显）
+        final boolean[] pinnedState = {getSharedPreferences("dynamic_wallpaper", MODE_PRIVATE).getBoolean("wallpaper_pinned", false)};
+        if (pinnedState[0]) {
+            pinnedToggleButton.setText("🔒 已钉住（点击解除）");
+        } else {
+            pinnedToggleButton.setText("📌 钉住当前壁纸（点击钉住）");
+        }
+        // 把状态同步给 Engine
+        final SisterFutureApplication appForPin = (SisterFutureApplication) getApplication();
+        new android.os.Handler(getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                MyEngine eng = appForPin.getMyEngine();
+                if (eng != null) eng.setPinned(pinnedState[0]);
+            }
+        }, 1000);
+
+        // 设置按钮点击监听器（点一次切换一次）
+        pinnedToggleButton.setOnClickListener(new android.view.View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View v) {
+                boolean newState = !pinnedState[0];
+                pinnedState[0] = newState;
+                com.stupidbeauty.dynamicwallpaper.utils.FileLogger.i("Pinned", "[PIN_UI] onClick newState=" + newState);
+                // 保存到 SharedPreferences
+                getSharedPreferences("dynamic_wallpaper", MODE_PRIVATE).edit()
+                    .putBoolean("wallpaper_pinned", newState).apply();
+                // 通知 Engine
+                SisterFutureApplication app = (SisterFutureApplication) getApplication();
+                MyEngine engine = app.getMyEngine();
+                if (engine != null) {
+                    engine.setPinned(newState);
+                }
+                // 更新按钮文案 + Toast
+                if (newState) {
+                    pinnedToggleButton.setText("🔒 已钉住（点击解除）");
+                    android.widget.Toast.makeText(SisterFutureActivity.this, "已钉住当前壁纸，不会自动切换", android.widget.Toast.LENGTH_SHORT).show();
+                } else {
+                    pinnedToggleButton.setText("📌 钉住当前壁纸（点击钉住）");
+                    android.widget.Toast.makeText(SisterFutureActivity.this, "已解除钉住，恢复自动切换", android.widget.Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -1089,13 +1140,23 @@ private void loadCurrentWallpaperPreview() {
     }; //private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver()
 
     /**
-     * 启动友军“21点关机”的服务。
+     * 启动友军"21点关机"的服务（仿照灵桌面新方式）。
      */
     protected void startFriendShutDownAt2100Service()
     {
-        Intent intent = new Intent();
-        intent.setComponent(new ComponentName("com.stupidbeauty.shutdownat2100androidnative", "com.stupidbeauty.shutdownat2100androidnative.TimeCheckService")); //设置组件。
-        startService(intent); //启动服务。
-
+        if (shutDownAt2100Logic != null)
+        {
+            shutDownAt2100Logic.checkShutDownTime(); // Check shut down time.
+        }
     } //protected void startFriendShutDownAt2100Service()
+
+    /**
+     * 实现 ShutDownAt2100LogicInterface 接口。
+     * 当前 Activity 暂不实现下载安装逻辑，返回 false。
+     */
+    @Override
+    public boolean requestDownloadApk(String shutDownAt2100PackageName)
+    {
+        return false;
+    } // public boolean requestDownloadApk(String shutDownAt2100PackageName)
 }
