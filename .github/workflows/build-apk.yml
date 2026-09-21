@@ -83,25 +83,25 @@ jobs:
         ls -la app/build/outputs/apk/debug/ || echo "Directory not found"
         find app/build/outputs -name "*.apk" || echo "No APK files found"
 
-    # Step 5: Sign Release APK (TEMPORARILY DISABLED for baseline generation)
-    # TODO: Re-enable once release keystore secrets are configured correctly
-    # - name: Sign Release APK
-    #   id: sign_release
-    #   uses: r0adkll/sign-android-release@v1
-    #   with:
-    #     releaseDirectory: app/build/outputs/apk/release
-    #     signingKeyBase64: ${{ secrets.APK_KEY_STORE }}
-    #     alias: ${{ secrets.KEYSTORE_ALIAS }}
-    #     keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-    #     keyPassword: ${{ secrets.KEY_STORE_PASSWORD }}
+    # Step 5: Sign Release APK
+    - name: Sign Release APK
+      id: sign_release
+      uses: r0adkll/sign-android-release@v1
+      with:
+        releaseDirectory: app/build/outputs/apk/release
+        signingKeyBase64: ${{ secrets.APK_KEY_STORE }}
+        alias: ${{ secrets.KEYSTORE_ALIAS }}
+        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+        keyPassword: ${{ secrets.KEY_STORE_PASSWORD }}
 
-    - name: List Unsigned APK Files (for debugging)
+    - name: List Signed APK Files
       run: |
-        echo "=== Release APK Directory ==="
+        echo "=== After Signing ==="
         ls -la app/build/outputs/apk/release/ || echo "Directory not found"
+        find app/build/outputs -name "*-signed.apk" || echo "No signed APK files found"
 
     # Upload lint baseline as artifact (priority - even if signing fails)
-    - name: Upload lint baseline (PRIORITY)
+    - name: Upload lint baseline
       if: always()
       uses: actions/upload-artifact@v4
       with:
@@ -116,12 +116,12 @@ jobs:
         name: dynamicwallpaper-debug
         path: app/build/outputs/apk/debug/*.apk
 
-    - name: Upload Unsigned Release APK artifact (PR)
+    - name: Upload Signed Release APK artifact (PR)
       if: github.event_name == 'pull_request'
       uses: actions/upload-artifact@v4
       with:
-        name: dynamicwallpaper-release-unsigned
-        path: app/build/outputs/apk/release/*.apk
+        name: dynamicwallpaper-release-signed
+        path: ${{ steps.sign_release.outputs.signedReleaseFile }}
 
     - name: Upload Artifacts on master push
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
@@ -130,4 +130,4 @@ jobs:
         name: dynamicwallpaper-build-${{ github.run_number }}
         path: |
           app/build/outputs/apk/debug/*.apk
-          app/build/outputs/apk/release/*.apk
+          ${{ steps.sign_release.outputs.signedReleaseFile }}
