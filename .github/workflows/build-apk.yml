@@ -84,15 +84,19 @@ jobs:
         find app/build/outputs -name "*.apk" || echo "No APK files found"
 
     # Step 5: Sign Release APK
+    # Uses pre-existing secrets (configured 2026-07-24 by owner):
+    #   - KEY_STORE_CONTENT_BASE64: keystore file as base64
+    #   - KEYSTORE_ALIAS: keystore alias
+    #   - KEYSTORE_SECRET: keystore password
     - name: Sign Release APK
       id: sign_release
       uses: r0adkll/sign-android-release@v1
       with:
         releaseDirectory: app/build/outputs/apk/release
-        signingKeyBase64: ${{ secrets.APK_KEY_STORE }}
+        signingKeyBase64: ${{ secrets.KEY_STORE_CONTENT_BASE64 }}
         alias: ${{ secrets.KEYSTORE_ALIAS }}
-        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-        keyPassword: ${{ secrets.KEY_STORE_PASSWORD }}
+        keyStorePassword: ${{ secrets.KEYSTORE_SECRET }}
+        keyPassword: ${{ secrets.KEYSTORE_SECRET }}
 
     - name: List Signed APK Files
       run: |
