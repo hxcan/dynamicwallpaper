@@ -10,7 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # Only commit baseline changes on push to master (not on PRs)
     permissions:
       contents: write
 
@@ -37,8 +36,6 @@ jobs:
       run: chmod +x gradlew
 
     # Step 1: Generate lint baseline if it doesn't exist
-    # This creates app/lint-baseline.xml containing ALL current lint issues
-    # Subsequent runs will use this baseline to suppress existing issues
     - name: Generate Lint baseline (if missing)
       run: |
         if [ ! -f app/lint-baseline.xml ]; then
@@ -48,8 +45,7 @@ jobs:
           echo "Baseline file exists, skipping generation"
         fi
 
-    # Step 2: Run lint (will use baseline to suppress existing issues)
-    # If new issues appear, they will fail the build
+    # Step 2: Run lint (uses baseline to suppress existing issues)
     - name: Run Lint with baseline
       run: ./gradlew :app:lintDebug --warning-mode none
 
@@ -59,7 +55,7 @@ jobs:
         export GRADLE_OPTS="-Dorg.gradle.jvmargs=-Xmx2048m -Dorg.gradle.daemon=false"
         ./gradlew assembleDebug assembleRelease --warning-mode none
 
-    # Step 4: Auto-commit generated baseline back to repo (only on push to master)
+    # Step 4: Auto-commit baseline back to repo (only on push to master)
     - name: Auto-commit lint baseline
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: |
@@ -87,21 +83,31 @@ jobs:
         ls -la app/build/outputs/apk/debug/ || echo "Directory not found"
         find app/build/outputs -name "*.apk" || echo "No APK files found"
 
-    - name: Sign Release APK
-      id: sign_release
-      uses: r0adkll/sign-android-release@v1
-      with:
-        releaseDirectory: app/build/outputs/apk/release
-        signingKeyBase64: ${{ secrets.APK_KEY_STORE }}
-        alias: ${{ secrets.KEYSTORE_ALIAS }}
-        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-        keyPassword: ${{ secrets.KEY_STORE_PASSWORD }}
+    # Step 5: Sign Release APK (TEMPORARILY DISABLED for baseline generation)
+    # TODO: Re-enable once release keystore secrets are configured correctly
+    # - name: Sign Release APK
+    #   id: sign_release
+    #   uses: r0adkll/sign-android-release@v1
+    #   with:
+    #     releaseDirectory: app/build/outputs/apk/release
+    #     signingKeyBase64: ${{ secrets.APK_KEY_STORE }}
+    #     alias: ${{ secrets.KEYSTORE_ALIAS }}
+    #     keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+    #     keyPassword: ${{ secrets.KEY_STORE_PASSWORD }}
 
-    - name: List Signed APK Files
+    - name: List Unsigned APK Files (for debugging)
       run: |
-        echo "=== After Signing ==="
+        echo "=== Release APK Directory ==="
         ls -la app/build/outputs/apk/release/ || echo "Directory not found"
-        find app/build/outputs -name "*-signed.apk" || echo "No signed APK files found"
+
+    # Upload lint baseline as artifact (priority - even if signing fails)
+    - name: Upload lint baseline (PRIORITY)
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: dynamicwallpaper-lint-baseline
+        path: app/lint-baseline.xml
+        if-no-files-found: ignore
 
     - name: Upload Debug APK artifact (PR)
       if: github.event_name == 'pull_request'
@@ -110,12 +116,12 @@ jobs:
         name: dynamicwallpaper-debug
         path: app/build/outputs/apk/debug/*.apk
 
-    - name: Upload Signed Release APK artifact (PR)
+    - name: Upload Unsigned Release APK artifact (PR)
       if: github.event_name == 'pull_request'
       uses: actions/upload-artifact@v4
       with:
-        name: dynamicwallpaper-release-signed
-        path: ${{ steps.sign_release.outputs.signedReleaseFile }}
+        name: dynamicwallpaper-release-unsigned
+        path: app/build/outputs/apk/release/*.apk
 
     - name: Upload Artifacts on master push
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
@@ -124,6 +130,4 @@ jobs:
         name: dynamicwallpaper-build-${{ github.run_number }}
         path: |
           app/build/outputs/apk/debug/*.apk
-          ${{ steps.sign_release.outputs.signedReleaseFile }}
-
-    # 暂不自动创建 GitHub Release（避免污染主人的 release 列表）
+          app/build/outputs/apk/release/*.apk
