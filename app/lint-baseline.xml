@@ -1,0 +1,3278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.4.1" type="baseline" client="gradle" dependencies="false" name="AGP (8.4.1)" variant="all" version="8.4.1">
+
+    <issue
+        id="MissingPermission"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        errorLine1="            android.graphics.drawable.Drawable wallpaperDrawable = wallpaperManager.getDrawable();"
+        errorLine2="                                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="886"
+            column="68"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="        text = text.toLowerCase();"
+        errorLine2="                    ~~~~~~~~~~~">
+        <location
+            file="src/main/java/net/tatans/tensorflowtts/utils/Processor.java"
+            line="302"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="        String sign=urlHexDigest.toUpperCase();"
+        errorLine2="                                 ~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="427"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="InlinedApi"
+        message="Field requires API level 23 (current min is 21): `android.Manifest.permission#REQUEST_INSTALL_PACKAGES`"
+        errorLine1="    private static final String PERMISSION_INSTALL_PACKAGE = Manifest.permission.REQUEST_INSTALL_PACKAGES; //!&lt; 安装应用程序权限"
+        errorLine2="                                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/hxlauncher/manager/PackageInformationManager.java"
+            line="254"
+            column="62"/>
+    </issue>
+
+    <issue
+        id="InlinedApi"
+        message="Field requires API level 23 (current min is 21): `android.Manifest.permission#REQUEST_INSTALL_PACKAGES`"
+        errorLine1="  private static final String PERMISSION_INSTALL_PACKAGE = Manifest.permission.REQUEST_INSTALL_PACKAGES; //!&lt; 安装应用程序权限"
+        errorLine2="                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="194"
+            column="60"/>
+    </issue>
+
+    <issue
+        id="InlinedApi"
+        message="Field requires API level 33 (current min is 21): `android.content.Context#STATUS_BAR_SERVICE`"
+        errorLine1="    StatusBarManager statusBarManager = (StatusBarManager) getSystemService(Context.STATUS_BAR_SERVICE);"
+        errorLine2="                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="229"
+            column="77"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Class requires API level 24 (current min is 21): `java.util.function.Consumer`"
+        errorLine1="public class AddQuickSettingsResultCallback implements Consumer&lt;Integer>"
+        errorLine2="                                                       ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/hxlauncher/callback/AddQuickSettingsResultCallback.java"
+            line="5"
+            column="56"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Class requires API level 29 (current min is 21): `android.app.StatusBarManager`"
+        errorLine1="    StatusBarManager statusBarManager = (StatusBarManager) getSystemService(Context.STATUS_BAR_SERVICE);"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="229"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 23 (current min is 21): `android.graphics.drawable.Icon#createWithResource`"
+        errorLine1="    Icon icon = Icon.createWithResource(this, R.drawable.ic_refresh);"
+        errorLine2="                     ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="238"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Call requires API level 33 (current min is 21): `android.app.StatusBarManager#requestAddTileService`"
+        errorLine1="    statusBarManager.requestAddTileService(componentName, label, icon, executor, callback);"
+        errorLine2="                     ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="248"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Class requires API level 24 (current min is 21): `android.service.quicksettings.TileService`"
+        errorLine1="public class WallpaperRefreshTileService extends TileService implements ShutDownAt2100LogicInterface {"
+        errorLine2="                                                 ~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/dynamicwallpaper/service/WallpaperRefreshTileService.java"
+            line="8"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="Suspicious indentation: This is indented but is not nested under the previous expression (`for (String aFileNam`...)"
+        errorLine1="    return result;"
+        errorLine2="    ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/ugmate/config/Config.java"
+            line="232"
+            column="5"/>
+        <location
+            file="src/main/java/com/stupidbeauty/ugmate/config/Config.java"
+            line="224"
+            column="3"
+            message="Previous statement here"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="The indentation string here is different from on the previous line (`&quot; &quot;` vs `\t`)"
+        errorLine1="  connectSignals(); //连接信号信号槽。"
+        errorLine2="~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="944"
+            column="1"/>
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="941"
+            column="1"
+            message="Previous line indentation here"/>
+    </issue>
+
+    <issue
+        id="WrongConstant"
+        message="Must be one of: Context.POWER_SERVICE, Context.WINDOW_SERVICE, Context.LAYOUT_INFLATER_SERVICE, Context.ACCOUNT_SERVICE, Context.ACTIVITY_SERVICE, Context.ALARM_SERVICE, Context.NOTIFICATION_SERVICE, Context.ACCESSIBILITY_SERVICE, Context.CAPTIONING_SERVICE, Context.KEYGUARD_SERVICE, Context.LOCATION_SERVICE, Context.SEARCH_SERVICE, Context.SENSOR_SERVICE, Context.STORAGE_SERVICE, Context.STORAGE_STATS_SERVICE, Context.WALLPAPER_SERVICE, Context.VIBRATOR_MANAGER_SERVICE, Context.VIBRATOR_SERVICE, Context.CONNECTIVITY_SERVICE, Context.IPSEC_SERVICE, Context.VPN_MANAGEMENT_SERVICE, Context.NETWORK_STATS_SERVICE, Context.WIFI_SERVICE, Context.WIFI_AWARE_SERVICE, Context.WIFI_P2P_SERVICE, Context.WIFI_RTT_RANGING_SERVICE, Context.NSD_SERVICE, Context.AUDIO_SERVICE, Context.FINGERPRINT_SERVICE, Context.BIOMETRIC_SERVICE, Context.MEDIA_ROUTER_SERVICE, Context.TELEPHONY_SERVICE, Context.TELEPHONY_SUBSCRIPTION_SERVICE, Context.CARRIER_CONFIG_SERVICE, Context.EUICC_SERVICE, Context.TELECOM_SERVICE, Context.CLIPBOARD_SERVICE, Context.INPUT_METHOD_SERVICE, Context.TEXT_SERVICES_MANAGER_SERVICE, Context.TEXT_CLASSIFICATION_SERVICE, Context.APPWIDGET_SERVICE, Context.DROPBOX_SERVICE, Context.DEVICE_POLICY_SERVICE, Context.UI_MODE_SERVICE, Context.DOWNLOAD_SERVICE, Context.NFC_SERVICE, Context.BLUETOOTH_SERVICE, Context.USB_SERVICE, Context.LAUNCHER_APPS_SERVICE, Context.INPUT_SERVICE, Context.DISPLAY_SERVICE, Context.USER_SERVICE, Context.RESTRICTIONS_SERVICE, Context.APP_OPS_SERVICE, Context.ROLE_SERVICE, Context.CAMERA_SERVICE, Context.PRINT_SERVICE, Context.CONSUMER_IR_SERVICE, Context.TV_INTERACTIVE_APP_SERVICE, Context.TV_INPUT_SERVICE, Context.USAGE_STATS_SERVICE, Context.MEDIA_SESSION_SERVICE, Context.MEDIA_COMMUNICATION_SERVICE, Context.BATTERY_SERVICE, Context.JOB_SCHEDULER_SERVICE, Context.MEDIA_PROJECTION_SERVICE, Context.MIDI_SERVICE, Context.HARDWARE_PROPERTIES_SERVICE, Context.SHORTCUT_SERVICE, Context.SYSTEM_HEALTH_SERVICE, Context.COMPANION_DEVICE_SERVICE, Context.CROSS_PROFILE_APPS_SERVICE, Context.LOCALE_SERVICE, Context.MEDIA_METRICS_SERVICE, Context.DISPLAY_HASH_SERVICE"
+        errorLine1="    StatusBarManager statusBarManager = (StatusBarManager) getSystemService(Context.STATUS_BAR_SERVICE);"
+        errorLine2="                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="229"
+            column="77"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="  @BindView(R.id.applicationIconrightimageView2) ImageView applicationIconrightimageView2; //!&lt;应用程序图标"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/dynamicwallpaper/service/MyLiveWallpaperService.java"
+            line="130"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="  @BindView(R.id.rightTextoperationMethodactTitletextView2) TextView rightTextoperationMethodactTitletextView2; //!&lt;应用程序名字"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/dynamicwallpaper/service/MyLiveWallpaperService.java"
+            line="131"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="@BindView(R.id.add_quick_settings_button)"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="164"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="@BindView(R.id.articleListmy_recycler_view) RecyclerView articleListmyRecyclerView; //!&lt; Message list."
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="169"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="@BindView(R.id.set_wallpaper_button)"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="171"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="@BindView(R.id.refresh_wallpaper_button)"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="174"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="@BindView(R.id.pinned_toggle_button)"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="177"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.commandRecognizebutton2) Button commandRecognizebutton2; //!&lt;开始识别的按钮。"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="208"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.progressBar) ProgressBar progressBar; //!&lt;进度条。"
+        errorLine2="              ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="210"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.speakerVerifyRegisterPasswordtextView) TextView speakerVerifyRegisterPasswordtextView; //!&lt;声纹注册密码文本标签。"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="213"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1=" @BindView(R.id.statustextView)"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="219"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1=" @BindView(R.id.volumeIndicatorprogressBar)"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="222"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1=" @BindView(R.id.recognizeResulttextView) EditText recognizeResulttextView; //!&lt;识别结果。"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="225"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="@OnClick(R.id.add_quick_settings_button)"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="227"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="@OnClick(R.id.set_wallpaper_button)"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="252"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="@OnClick(R.id.refresh_wallpaper_button)"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="268"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @OnClick(R.id.sendButtonn2)"
+        errorLine2="             ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="475"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="RedundantLabel"
+        message="Redundant label can be removed"
+        errorLine1="    &lt;activity android:name=&quot;com.stupidbeauty.sisterfuture.SisterFutureActivity&quot; android:screenOrientation=&quot;portrait&quot; android:label=&quot;@string/app_name&quot;>"
+        errorLine2="                                                                                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="21"
+            column="118"/>
+    </issue>
+
+    <issue
+        id="UnspecifiedRegisterReceiverFlag"
+        message="`mBroadcastReceiver` is missing `RECEIVER_EXPORTED` or `RECEIVER_NOT_EXPORTED` flag for unprotected broadcasts registered for com.stupidbeauty.lanime.commitText, com.stupidbeauty.lanime.commitControlCharacter, notifyCallbackIp, com.stupidbeauty.lanime.hideKeyboard, com.stupidbeauty.dynamicwallpaper.WALLPAPER_CHANGED"
+        errorLine1="        registerReceiver(mBroadcastReceiver, filter); //注册接收器。"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="1106"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.8.0"
+        errorLine1="  implementation &apos;androidx.appcompat:appcompat:1.6.1&apos; // Or the latest version"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="10"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.recyclerview:recyclerview than 1.3.0 is available: 1.4.0"
+        errorLine1="  implementation &apos;androidx.recyclerview:recyclerview:1.3.0&apos; // 或者使用最新的版本"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="12"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of `compileSdkVersion` than 33 is available: 34"
+        errorLine1="  compileSdkVersion 33"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="23"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="LockedOrientationActivity"
+        message="Expecting `android:screenOrientation=&quot;unspecified&quot;` or `&quot;fullSensor&quot;` for this activity so the user can use the application in any orientation and provide a great experience on Chrome OS devices"
+        errorLine1="    &lt;activity android:name=&quot;com.stupidbeauty.sisterfuture.SisterFutureActivity&quot; android:screenOrientation=&quot;portrait&quot; android:label=&quot;@string/app_name&quot;>"
+        errorLine2="                                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="21"
+            column="81"/>
+    </issue>
+
+    <issue
+        id="ExtraText"
+        message="Unexpected text found in drawable file: &quot;&quot;"
+        errorLine1="    "
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/progressbar.xml"
+            line="7"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="DiscouragedApi"
+        message="Should not restrict activity to fixed orientation. This may not be suitable for different form factors, causing the app to be letterboxed."
+        errorLine1="    &lt;activity android:name=&quot;com.stupidbeauty.sisterfuture.SisterFutureActivity&quot; android:screenOrientation=&quot;portrait&quot; android:label=&quot;@string/app_name&quot;>"
+        errorLine2="                                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="21"
+            column="81"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;prepareInstall&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;prepareInstall&quot;>Prepare install&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="8"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;applicationIcon&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;applicationIcon&quot;>Application Icon&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="9"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;backgroundImage&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;backgroundImage&quot;>Background image&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="10"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;darkBackgroundImage&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;darkBackgroundImage&quot;>Dark the background image&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="11"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;hxLauncherSettings&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;hxLauncherSettings&quot;>HxLauncher Settings&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="12"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;hiveLayout&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;hiveLayout&quot;>Hive layout&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="13"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;apn_setting_username&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;apn_setting_username&quot;>Username&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="14"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;setting_tab_name&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;setting_tab_name&quot;>Setting&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="15"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;about_info_coverage&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;about_info_coverage&quot;>Coverage&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="16"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;unlink_not_right&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;unlink_not_right&quot;>Not right&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="17"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;about_help_feedback_title&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;about_help_feedback_title&quot;>Help And Feedback&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="18"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;faq_title&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;faq_title&quot;>FAQ&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="19"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;login_in&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;login_in&quot;>Login&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="20"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;login_login_button&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;login_login_button&quot;>Login&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="21"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;loginout_loginout_button&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;loginout_loginout_button&quot;>Log Out&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="22"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;stopWeb&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;stopWeb&quot;>Stop&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="23"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;forwardWeb&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;forwardWeb&quot;>Forward&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="24"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;register&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;register&quot;>Register&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="25"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;enterPassword&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;enterPassword&quot;>Enter password&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="26"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;forgotPassword&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;forgotPassword&quot;>Forgot password?&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="27"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;registerInfo&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;registerInfo&quot;>Register information&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="28"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;country&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;country&quot;>Country&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="29"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;needUnlock&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;needUnlock&quot;>Need unlock&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="30"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;startDownload&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;startDownload&quot;>Start download&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="31"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;chinaPlus86&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;chinaPlus86&quot;>China +86&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="32"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;pleaseChooseCountry&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;pleaseChooseCountry&quot;>Please choose your country&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="33"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;inputValidationCode&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;inputValidationCode&quot;>Enter the validation code&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="34"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;sendValidationCode&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;sendValidationCode&quot;>Send the validation code&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="35"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;setPassword&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;setPassword&quot;>Set the password&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="36"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;submit&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;submit&quot;>Submit&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="38"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;emailLogin&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;emailLogin&quot;>Login by email&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="39"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;hxlauncherService&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;hxlauncherService&quot;>HxLauncher Service&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="40"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;enable&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;enable&quot;>Enable&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="41"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;statusNormal&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;statusNormal&quot;>Ready&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="42"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;queryq&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;queryq&quot;>Query&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="43"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;charge&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;charge&quot;>Charge&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="44"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;about&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;about&quot;>About&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="45"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;loginUsePhoneNumber&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;loginUsePhoneNumber&quot;>Login by phone&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="46"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;phoneRegister&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;phoneRegister&quot;>Register by phone&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="47"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;email&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;email&quot;>Email&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="48"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;password&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;password&quot;>Password&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="49"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;passwordAgain&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;passwordAgain&quot;>Repeat password&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="50"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;locks&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;locks&quot;>Lock&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="51"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;loginSuccess&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;loginSuccess&quot;>Logic successful&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="52"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;goAndEnableLocationService&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;goAndEnableLocationService&quot;>Enable it&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="53"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;noNotEnableLocationService&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;noNotEnableLocationService&quot;>Do not enable&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="54"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;rateUs&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;rateUs&quot;>Rate us&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="55"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;msg_intent_failed&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;msg_intent_failed&quot;>Sorry, the requested application could not be launched.&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="56"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;button_ok&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;button_ok&quot;>OK&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="57"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;firstStepEnableLanIme&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;firstStepEnableLanIme&quot;>Auto run&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="58"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;applicationFrequency&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;applicationFrequency&quot;>Application frequency&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="59"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;myAccount&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;myAccount&quot;>My account&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="60"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;freeCredit&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;freeCredit&quot;>Free speech credit:&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="61"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;paidCredit&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;paidCredit&quot;>Paid speech credit&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="62"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;emailAddress&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;emailAddress&quot;>User name&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="73"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;shortcutAdded&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;shortcutAdded&quot;>Shortcut added&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="74"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;applicationAlias&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;applicationAlias&quot;>Application alias&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="75"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;pleaseSetHxLauncherAsTheDefaultLauncher&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;pleaseSetHxLauncherAsTheDefaultLauncher&quot;>Please set HxLauncher as the default launcher.&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="76"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;builtinShortcuts&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;builtinShortcuts&quot;>Builtin shortcuts&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="77"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;sayToMeAppName&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;sayToMeAppName&quot;>Say to me:\&quot;%1$s\&quot;&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="78"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;appNamePrompt&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;appNamePrompt&quot;>Messages&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="79"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;notificationListernerService&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;notificationListernerService&quot;>Notification Listener Service&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="80"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;notificationBadges&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;notificationBadges&quot;>Notification Badge&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="81"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;shareApkges&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;shareApkges&quot;>Share APK&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="82"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;installerPackage&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;installerPackage&quot;>InstallerPackage&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="83"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;blindBoxCanBeDownloadedAt&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;blindBoxCanBeDownloadedAt&quot;>BlindBox can be downloaded at: https://stupidbeauty.com/ArticleImages/1931/BlindBox.12889.2023.2.4.e.apk&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="84"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;done&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;done&quot;>Done&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="85"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;installFailed&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;installFailed&quot;>Install failed&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="86"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;setDefaultLaunchers&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;setDefaultLaunchers&quot;>Set as default launcher&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="87"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;mb&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;mb&quot;>MB&lt;/string>"
+        errorLine2="          ~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="88"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;downloadAndInstallIfInterested&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;downloadAndInstallIfInterested&quot;>We have picked this application for you. If its icon and name interested you, you can download, install and play with it by clicking the button.&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="89"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;openApplication&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;openApplication&quot;>Open application&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="90"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;downloadFailed&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;downloadFailed&quot;>Download failed&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="91"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;addQuickSettingsers&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;addQuickSettingsers&quot;>Add quick settings button&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="92"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;countlessApplications&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;countlessApplications&quot;>There are countless phone applications on earth, most of them are unknown to you. You can pick up these new applications randomly with Blindbox. If you are interested in to picked up applications, you can download, install and play with them.&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="93"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;installFinished&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;installFinished&quot;>Install finished&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="94"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;clickTheIconToGetRandomApplication&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;clickTheIconToGetRandomApplication&quot;>Click icon to get a blind box&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="95"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;changeApplication&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;changeApplication&quot;>Change Application&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="96"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;doNotGrantPermissionEasily&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;doNotGrantPermissionEasily&quot;>Do not grant any permission to any application easily. The core functionality of most of the applications can work correctly without requesting any permissions.&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="97"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;testShutDownt&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;testShutDownt&quot;>Test shut down&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="98"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;installing&quot; is not translated in &quot;zh&quot; (Chinese)"
+        errorLine1="  &lt;string name=&quot;installing&quot;>Installing&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="99"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="PermissionImpliesUnsupportedChromeOsHardware"
+        message="Permission exists without corresponding hardware `&lt;uses-feature android:name=&quot;android.hardware.telephony&quot; required=&quot;false&quot;>` tag"
+        errorLine1="  &lt;uses-permission android:name=&quot;android.permission.RECEIVE_SMS&quot;/>"
+        errorLine2="   ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="9"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="TrustAllX509TrustManager"
+        message="`checkClientTrusted` is empty, which could cause insecure network traffic due to trusting arbitrary TLS/SSL certificates presented by peers">
+        <location
+            file="$GRADLE_USER_HOME/caches/transforms-4/b54a3bf6b065b5a77b6ea669795c8076/transformed/jetified-androidasync-2.1.7/jars/classes.jar"/>
+    </issue>
+
+    <issue
+        id="IntentFilterExportedReceiver"
+        message="As of Android 12, `android:exported` must be set; use `true` to make the activity available to other apps, and `false` otherwise. For launcher activities, this should be set to `true`."
+        errorLine1="    &lt;activity android:name=&quot;com.stupidbeauty.sisterfuture.SisterFutureActivity&quot; android:screenOrientation=&quot;portrait&quot; android:label=&quot;@string/app_name&quot;>"
+        errorLine2="     ~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="21"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="IntentFilterExportedReceiver"
+        message="As of Android 12, `android:exported` must be set; use `true` to make the activity available to other apps, and `false` otherwise."
+        errorLine1="    &lt;service android:name=&quot;com.stupidbeauty.dynamicwallpaper.service.MyLiveWallpaperService&quot; android:permission=&quot;android.permission.BIND_WALLPAPER&quot;>"
+        errorLine2="     ~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="27"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ExpiredTargetSdkVersion"
+        message="Google Play requires that apps target API level 33 or higher."
+        errorLine1="    targetSdkVersion 28"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="30"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.about_button_bg` appears to be unused"
+        errorLine1="&lt;selector"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/about_button_bg.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.adfed9a77be62c3c43a203c1305` appears to be unused">
+        <location
+            file="src/main/res/drawable-xxxhdpi/adfed9a77be62c3c43a203c1305.jpg"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.layout.auto_run_settings_activity` appears to be unused"
+        errorLine1="&lt;RelativeLayout"
+        errorLine2="^">
+        <location
+            file="src/main/res/layout/auto_run_settings_activity.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.b57fbd9996e24bc43bfdd` appears to be unused">
+        <location
+            file="src/main/res/drawable-xxxhdpi/b57fbd9996e24bc43bfdd.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.b57fbd9996e24bc43bfdddark` appears to be unused">
+        <location
+            file="src/main/res/drawable-xxxhdpi/b57fbd9996e24bc43bfdddark.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.back` appears to be unused"
+        errorLine1="&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:shape=&quot;rectangle&quot;>"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/back.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.btn_gou1` appears to be unused">
+        <location
+            file="src/main/res/drawable/btn_gou1.9.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.button_background` appears to be unused">
+        <location
+            file="src/main/res/drawable-xxxhdpi/button_background.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.button_bg_sel_01` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/button_bg_sel_01.9.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.button_selector` appears to be unused"
+        errorLine1="&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/button_selector.xml"
+            line="3"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.button_yjt` appears to be unused">
+        <location
+            file="src/main/res/drawable/button_yjt.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.green` appears to be unused"
+        errorLine1="  &lt;color name=&quot;green&quot;>#00ff00&lt;/color>"
+        errorLine2="         ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors (1).xml"
+            line="3"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.huise` appears to be unused"
+        errorLine1="  &lt;color name=&quot;huise&quot;>#ff777777&lt;/color>"
+        errorLine2="         ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors (1).xml"
+            line="4"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.black` appears to be unused"
+        errorLine1="  &lt;color name=&quot;black&quot;>#000000&lt;/color>"
+        errorLine2="         ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors (1).xml"
+            line="5"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.light_gray` appears to be unused"
+        errorLine1="  &lt;color name=&quot;light_gray&quot;>#424445&lt;/color>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors (1).xml"
+            line="6"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.orange1` appears to be unused"
+        errorLine1="  &lt;color name=&quot;orange1&quot;>#FF973E&lt;/color>"
+        errorLine2="         ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors (1).xml"
+            line="7"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.white` appears to be unused"
+        errorLine1="  &lt;color name=&quot;white&quot;>#ffffffff&lt;/color>"
+        errorLine2="         ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors (1).xml"
+            line="8"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.nav_bar_bg` appears to be unused"
+        errorLine1="  &lt;color name=&quot;nav_bar_bg&quot;>#AAAAAA&lt;/color>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors (1).xml"
+            line="11"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.action_sheet_content_bg` appears to be unused"
+        errorLine1="  &lt;color name=&quot;action_sheet_content_bg&quot;>#61656F&lt;/color>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors (1).xml"
+            line="13"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.red` appears to be unused"
+        errorLine1="  &lt;color name=&quot;red&quot;>#ffff0000&lt;/color>"
+        errorLine2="         ~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors (1).xml"
+            line="14"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.emailRegisterColor` appears to be unused"
+        errorLine1="  &lt;color name=&quot;emailRegisterColor&quot;>#666666&lt;/color>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors (1).xml"
+            line="15"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.light_white` appears to be unused"
+        errorLine1="  &lt;color name=&quot;light_white&quot;>#BEBEBE&lt;/color>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors (1).xml"
+            line="17"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.orange2` appears to be unused"
+        errorLine1="  &lt;color name=&quot;orange2&quot;>#FED12D&lt;/color>"
+        errorLine2="         ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors (1).xml"
+            line="18"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.x2bgcolor` appears to be unused"
+        errorLine1="  &lt;color name=&quot;x2bgcolor&quot;>#e4e4e4&lt;/color>"
+        errorLine2="         ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors (1).xml"
+            line="20"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.d09069860932b3c86a7cfae8570e2handindexfingersleeveillustrationbyvexels` appears to be unused">
+        <location
+            file="src/main/res/drawable-xxxhdpi/d09069860932b3c86a7cfae8570e2handindexfingersleeveillustrationbyvexels.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.delete512` appears to be unused">
+        <location
+            file="src/main/res/drawable-xxxhdpi/delete512.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.dovi14wuwaai7j81080` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/dovi14wuwaai7j81080.webp"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.downloadbutton` appears to be unused">
+        <location
+            file="src/main/res/drawable-xxxhdpi/downloadbutton.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.eyedisabled` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/eyedisabled.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.eyeenabled` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/eyeenabled.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.eyetogglebuttondrawable` appears to be unused"
+        errorLine1="&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; >"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/eyetogglebuttondrawable.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.gps` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/gps.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_launcher` appears to be unused">
+        <location
+            file="src/main/res/drawable/ic_launcher.webp"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.integer.columnsPerRow` appears to be unused"
+        errorLine1="  &lt;integer name=&quot;columnsPerRow&quot;>5&lt;/integer>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/integers.xml"
+            line="3"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.layout.item_ai_message` appears to be unused"
+        errorLine1="&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/layout/item_ai_message.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.item_bg` appears to be unused"
+        errorLine1="&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; >"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/item_bg.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.layout.item_user_message` appears to be unused"
+        errorLine1="&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/layout/item_user_message.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.n962606` appears to be unused">
+        <location
+            file="src/main/res/drawable-xxxhdpi/n962606.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.layout.pin_shortcut_confirm_activity` appears to be unused"
+        errorLine1="&lt;RelativeLayout"
+        errorLine2="^">
+        <location
+            file="src/main/res/layout/pin_shortcut_confirm_activity.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.progressbar` appears to be unused"
+        errorLine1="&lt;animated-rotate xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/progressbar.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.record_button_go_dark` appears to be unused"
+        errorLine1="&lt;animation-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/record_button_go_dark.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.record_button_go_light` appears to be unused"
+        errorLine1="&lt;animation-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/record_button_go_light.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.layout.settings_activity` appears to be unused"
+        errorLine1="&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/layout/settings_activity.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.shape` appears to be unused"
+        errorLine1="&lt;shape "
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/shape.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.stopusingphone` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/stopusingphone.jpg"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.somethingIsWrong` appears to be unused"
+        errorLine1="  &lt;string name=&quot;somethingIsWrong&quot;>Someting is wrong, please try again later.&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="5"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.prepareInstall` appears to be unused"
+        errorLine1="  &lt;string name=&quot;prepareInstall&quot;>Prepare install&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="8"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.applicationIcon` appears to be unused"
+        errorLine1="  &lt;string name=&quot;applicationIcon&quot;>Application Icon&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="9"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.backgroundImage` appears to be unused"
+        errorLine1="  &lt;string name=&quot;backgroundImage&quot;>Background image&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="10"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.darkBackgroundImage` appears to be unused"
+        errorLine1="  &lt;string name=&quot;darkBackgroundImage&quot;>Dark the background image&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="11"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.hxLauncherSettings` appears to be unused"
+        errorLine1="  &lt;string name=&quot;hxLauncherSettings&quot;>HxLauncher Settings&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="12"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.hiveLayout` appears to be unused"
+        errorLine1="  &lt;string name=&quot;hiveLayout&quot;>Hive layout&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="13"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.apn_setting_username` appears to be unused"
+        errorLine1="  &lt;string name=&quot;apn_setting_username&quot;>Username&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="14"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.setting_tab_name` appears to be unused"
+        errorLine1="  &lt;string name=&quot;setting_tab_name&quot;>Setting&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="15"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.about_info_coverage` appears to be unused"
+        errorLine1="  &lt;string name=&quot;about_info_coverage&quot;>Coverage&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="16"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.unlink_not_right` appears to be unused"
+        errorLine1="  &lt;string name=&quot;unlink_not_right&quot;>Not right&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="17"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.about_help_feedback_title` appears to be unused"
+        errorLine1="  &lt;string name=&quot;about_help_feedback_title&quot;>Help And Feedback&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="18"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.faq_title` appears to be unused"
+        errorLine1="  &lt;string name=&quot;faq_title&quot;>FAQ&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="19"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.login_in` appears to be unused"
+        errorLine1="  &lt;string name=&quot;login_in&quot;>Login&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="20"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.login_login_button` appears to be unused"
+        errorLine1="  &lt;string name=&quot;login_login_button&quot;>Login&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="21"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.loginout_loginout_button` appears to be unused"
+        errorLine1="  &lt;string name=&quot;loginout_loginout_button&quot;>Log Out&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="22"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.stopWeb` appears to be unused"
+        errorLine1="  &lt;string name=&quot;stopWeb&quot;>Stop&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="23"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.forwardWeb` appears to be unused"
+        errorLine1="  &lt;string name=&quot;forwardWeb&quot;>Forward&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="24"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.register` appears to be unused"
+        errorLine1="  &lt;string name=&quot;register&quot;>Register&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="25"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.enterPassword` appears to be unused"
+        errorLine1="  &lt;string name=&quot;enterPassword&quot;>Enter password&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="26"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.forgotPassword` appears to be unused"
+        errorLine1="  &lt;string name=&quot;forgotPassword&quot;>Forgot password?&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="27"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.registerInfo` appears to be unused"
+        errorLine1="  &lt;string name=&quot;registerInfo&quot;>Register information&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="28"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.country` appears to be unused"
+        errorLine1="  &lt;string name=&quot;country&quot;>Country&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="29"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.needUnlock` appears to be unused"
+        errorLine1="  &lt;string name=&quot;needUnlock&quot;>Need unlock&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="30"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.startDownload` appears to be unused"
+        errorLine1="  &lt;string name=&quot;startDownload&quot;>Start download&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="31"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.chinaPlus86` appears to be unused"
+        errorLine1="  &lt;string name=&quot;chinaPlus86&quot;>China +86&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="32"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.pleaseChooseCountry` appears to be unused"
+        errorLine1="  &lt;string name=&quot;pleaseChooseCountry&quot;>Please choose your country&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="33"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.inputValidationCode` appears to be unused"
+        errorLine1="  &lt;string name=&quot;inputValidationCode&quot;>Enter the validation code&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="34"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.sendValidationCode` appears to be unused"
+        errorLine1="  &lt;string name=&quot;sendValidationCode&quot;>Send the validation code&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="35"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.setPassword` appears to be unused"
+        errorLine1="  &lt;string name=&quot;setPassword&quot;>Set the password&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="36"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.emptyString` appears to be unused"
+        errorLine1="  &lt;string name=&quot;emptyString&quot; translatable=&quot;false&quot;/>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="37"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.submit` appears to be unused"
+        errorLine1="  &lt;string name=&quot;submit&quot;>Submit&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="38"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.emailLogin` appears to be unused"
+        errorLine1="  &lt;string name=&quot;emailLogin&quot;>Login by email&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="39"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.hxlauncherService` appears to be unused"
+        errorLine1="  &lt;string name=&quot;hxlauncherService&quot;>HxLauncher Service&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="40"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.enable` appears to be unused"
+        errorLine1="  &lt;string name=&quot;enable&quot;>Enable&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="41"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.statusNormal` appears to be unused"
+        errorLine1="  &lt;string name=&quot;statusNormal&quot;>Ready&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="42"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.queryq` appears to be unused"
+        errorLine1="  &lt;string name=&quot;queryq&quot;>Query&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="43"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.charge` appears to be unused"
+        errorLine1="  &lt;string name=&quot;charge&quot;>Charge&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="44"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.about` appears to be unused"
+        errorLine1="  &lt;string name=&quot;about&quot;>About&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="45"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.loginUsePhoneNumber` appears to be unused"
+        errorLine1="  &lt;string name=&quot;loginUsePhoneNumber&quot;>Login by phone&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="46"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.phoneRegister` appears to be unused"
+        errorLine1="  &lt;string name=&quot;phoneRegister&quot;>Register by phone&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="47"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.email` appears to be unused"
+        errorLine1="  &lt;string name=&quot;email&quot;>Email&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="48"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.password` appears to be unused"
+        errorLine1="  &lt;string name=&quot;password&quot;>Password&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="49"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.passwordAgain` appears to be unused"
+        errorLine1="  &lt;string name=&quot;passwordAgain&quot;>Repeat password&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="50"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.locks` appears to be unused"
+        errorLine1="  &lt;string name=&quot;locks&quot;>Lock&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="51"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.loginSuccess` appears to be unused"
+        errorLine1="  &lt;string name=&quot;loginSuccess&quot;>Logic successful&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="52"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.goAndEnableLocationService` appears to be unused"
+        errorLine1="  &lt;string name=&quot;goAndEnableLocationService&quot;>Enable it&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="53"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.noNotEnableLocationService` appears to be unused"
+        errorLine1="  &lt;string name=&quot;noNotEnableLocationService&quot;>Do not enable&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="54"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.rateUs` appears to be unused"
+        errorLine1="  &lt;string name=&quot;rateUs&quot;>Rate us&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="55"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.msg_intent_failed` appears to be unused"
+        errorLine1="  &lt;string name=&quot;msg_intent_failed&quot;>Sorry, the requested application could not be launched.&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="56"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.button_ok` appears to be unused"
+        errorLine1="  &lt;string name=&quot;button_ok&quot;>OK&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="57"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.firstStepEnableLanIme` appears to be unused"
+        errorLine1="  &lt;string name=&quot;firstStepEnableLanIme&quot;>Auto run&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="58"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.applicationFrequency` appears to be unused"
+        errorLine1="  &lt;string name=&quot;applicationFrequency&quot;>Application frequency&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="59"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.myAccount` appears to be unused"
+        errorLine1="  &lt;string name=&quot;myAccount&quot;>My account&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="60"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.freeCredit` appears to be unused"
+        errorLine1="  &lt;string name=&quot;freeCredit&quot;>Free speech credit:&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="61"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.paidCredit` appears to be unused"
+        errorLine1="  &lt;string name=&quot;paidCredit&quot;>Paid speech credit&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="62"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.array.durationArray` appears to be unused"
+        errorLine1="  &lt;array name=&quot;durationArray&quot;>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="63"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.emailAddress` appears to be unused"
+        errorLine1="  &lt;string name=&quot;emailAddress&quot;>User name&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="73"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.shortcutAdded` appears to be unused"
+        errorLine1="  &lt;string name=&quot;shortcutAdded&quot;>Shortcut added&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="74"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.applicationAlias` appears to be unused"
+        errorLine1="  &lt;string name=&quot;applicationAlias&quot;>Application alias&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="75"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.pleaseSetHxLauncherAsTheDefaultLauncher` appears to be unused"
+        errorLine1="  &lt;string name=&quot;pleaseSetHxLauncherAsTheDefaultLauncher&quot;>Please set HxLauncher as the default launcher.&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="76"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.builtinShortcuts` appears to be unused"
+        errorLine1="  &lt;string name=&quot;builtinShortcuts&quot;>Builtin shortcuts&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="77"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.sayToMeAppName` appears to be unused"
+        errorLine1="  &lt;string name=&quot;sayToMeAppName&quot;>Say to me:\&quot;%1$s\&quot;&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="78"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.appNamePrompt` appears to be unused"
+        errorLine1="  &lt;string name=&quot;appNamePrompt&quot;>Messages&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="79"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.notificationListernerService` appears to be unused"
+        errorLine1="  &lt;string name=&quot;notificationListernerService&quot;>Notification Listener Service&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="80"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.notificationBadges` appears to be unused"
+        errorLine1="  &lt;string name=&quot;notificationBadges&quot;>Notification Badge&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="81"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.shareApkges` appears to be unused"
+        errorLine1="  &lt;string name=&quot;shareApkges&quot;>Share APK&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="82"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.installerPackage` appears to be unused"
+        errorLine1="  &lt;string name=&quot;installerPackage&quot;>InstallerPackage&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="83"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.blindBoxCanBeDownloadedAt` appears to be unused"
+        errorLine1="  &lt;string name=&quot;blindBoxCanBeDownloadedAt&quot;>BlindBox can be downloaded at: https://stupidbeauty.com/ArticleImages/1931/BlindBox.12889.2023.2.4.e.apk&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="84"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.done` appears to be unused"
+        errorLine1="  &lt;string name=&quot;done&quot;>Done&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="85"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.installFailed` appears to be unused"
+        errorLine1="  &lt;string name=&quot;installFailed&quot;>Install failed&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="86"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.setDefaultLaunchers` appears to be unused"
+        errorLine1="  &lt;string name=&quot;setDefaultLaunchers&quot;>Set as default launcher&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="87"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.mb` appears to be unused"
+        errorLine1="  &lt;string name=&quot;mb&quot;>MB&lt;/string>"
+        errorLine2="          ~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="88"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.downloadAndInstallIfInterested` appears to be unused"
+        errorLine1="  &lt;string name=&quot;downloadAndInstallIfInterested&quot;>We have picked this application for you. If its icon and name interested you, you can download, install and play with it by clicking the button.&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="89"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.openApplication` appears to be unused"
+        errorLine1="  &lt;string name=&quot;openApplication&quot;>Open application&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="90"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.downloadFailed` appears to be unused"
+        errorLine1="  &lt;string name=&quot;downloadFailed&quot;>Download failed&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="91"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.addQuickSettingsers` appears to be unused"
+        errorLine1="  &lt;string name=&quot;addQuickSettingsers&quot;>Add quick settings button&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="92"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.countlessApplications` appears to be unused"
+        errorLine1="  &lt;string name=&quot;countlessApplications&quot;>There are countless phone applications on earth, most of them are unknown to you. You can pick up these new applications randomly with Blindbox. If you are interested in to picked up applications, you can download, install and play with them.&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="93"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.installFinished` appears to be unused"
+        errorLine1="  &lt;string name=&quot;installFinished&quot;>Install finished&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="94"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.clickTheIconToGetRandomApplication` appears to be unused"
+        errorLine1="  &lt;string name=&quot;clickTheIconToGetRandomApplication&quot;>Click icon to get a blind box&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="95"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.changeApplication` appears to be unused"
+        errorLine1="  &lt;string name=&quot;changeApplication&quot;>Change Application&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="96"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.doNotGrantPermissionEasily` appears to be unused"
+        errorLine1="  &lt;string name=&quot;doNotGrantPermissionEasily&quot;>Do not grant any permission to any application easily. The core functionality of most of the applications can work correctly without requesting any permissions.&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="97"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.testShutDownt` appears to be unused"
+        errorLine1="  &lt;string name=&quot;testShutDownt&quot;>Test shut down&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="98"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.installing` appears to be unused"
+        errorLine1="  &lt;string name=&quot;installing&quot;>Installing&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="99"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.style.AudioFileInfoOverlayText` appears to be unused"
+        errorLine1="  &lt;style name=&quot;AudioFileInfoOverlayText&quot;>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/styles (1).xml"
+            line="2"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.style.AppTheme` appears to be unused"
+        errorLine1="  &lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat&quot;>"
+        errorLine2="         ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/styles (1).xml"
+            line="9"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.t236860` appears to be unused">
+        <location
+            file="src/main/res/drawable-xxxhdpi/t236860.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.t2796912000512` appears to be unused">
+        <location
+            file="src/main/res/drawable-xxxhdpi/t2796912000512.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.thumb_5d8d76d9c2534576` appears to be unused">
+        <location
+            file="src/main/res/drawable-xxxhdpi/thumb_5d8d76d9c2534576.webp"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.layout.unlink_activity` appears to be unused"
+        errorLine1="&lt;RelativeLayout"
+        errorLine2="^">
+        <location
+            file="src/main/res/layout/unlink_activity.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.vector_66_11` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/vector_66_11.png"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icons should not fill every pixel of their square region; see the design guide for details">
+        <location
+            file="src/main/res/drawable-xhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/btn_gou1.9.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/btn_gou1.9.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/button_yjt.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/button_yjt.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/ic_launcher.webp` in densityless folder">
+        <location
+            file="src/main/res/drawable/ic_launcher.webp"/>
+    </issue>
+
+    <issue
+        id="IconDensities"
+        message="Missing the following drawables in `drawable-hdpi`: adfed9a77be62c3c43a203c1305.jpg, b57fbd9996e24bc43bfdd.png, b57fbd9996e24bc43bfdddark.png, button_background.png, d09069860932b3c86a7cfae8570e2handindexfingersleeveillustrationbyvexels.png... (11 more)">
+        <location
+            file="src/main/res/drawable-hdpi"/>
+    </issue>
+
+    <issue
+        id="IconDensities"
+        message="Missing the following drawables in `drawable-xhdpi`: adfed9a77be62c3c43a203c1305.jpg, b57fbd9996e24bc43bfdd.png, b57fbd9996e24bc43bfdddark.png, button_background.png, button_bg_sel_01.9.png... (20 more)">
+        <location
+            file="src/main/res/drawable-xhdpi"/>
+    </issue>
+
+    <issue
+        id="IconExtension"
+        message="Misleading file extension; named `.jpg` but the file format is `webp`">
+        <location
+            file="src/main/res/drawable-xxxhdpi/preview287png.jpg"/>
+    </issue>
+
+    <issue
+        id="IconMissingDensityFolder"
+        message="Missing density variation folders in `src/main/res`: drawable-mdpi, drawable-xxhdpi">
+        <location
+            file="src/main/res"/>
+    </issue>
+
+    <issue
+        id="ButtonStyle"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)"
+        errorLine1="    &lt;Button"
+        errorLine2="     ~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="38"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ButtonStyle"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)"
+        errorLine1="    &lt;Button"
+        errorLine2="     ~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="47"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ButtonStyle"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)"
+        errorLine1="    &lt;Button"
+        errorLine2="     ~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="56"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="  &lt;EditText android:layout_width=&quot;wrap_content&quot; android:layout_height=&quot;wrap_content&quot; android:id=&quot;@+id/recognizeResulttextView&quot; android:visibility=&quot;gone&quot; android:layout_alignParentBottom=&quot;true&quot; android:layout_alignParentLeft=&quot;true&quot; android:layout_toLeftOf=&quot;@+id/sendButtonn2&quot; android:inputType=&quot;text&quot; android:imeOptions=&quot;actionSend&quot; android:maxLines=&quot;3&quot;/>"
+        errorLine2="   ~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="65"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="ClickableViewAccessibility"
+        message="Custom view ``Button`` has `setOnTouchListener` called on it but does not override `performClick`"
+        errorLine1="        commandRecognizebutton2.setOnTouchListener(commandRecognizeButtonTouchListener); //设置触摸事件监听器。"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/stupidbeauty/sisterfuture/SisterFutureActivity.java"
+            line="769"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="  &lt;ImageView android:id=&quot;@+id/preview_image&quot; android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;wrap_content&quot; android:layout_margin=&quot;16dp&quot; android:scaleType=&quot;centerCrop&quot; android:background=&quot;@color/gray&quot; android:layout_above=&quot;@+id/recognizeResulttextView&quot; android:layout_alignParentStart=&quot;true&quot; android:layout_alignParentLeft=&quot;true&quot; android:layout_alignParentTop=&quot;true&quot; android:visibility=&quot;visible&quot;/>"
+        errorLine2="   ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="5"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="KeyboardInaccessibleWidget"
+        message="&apos;clickable&apos; attribute found, please also add &apos;focusable&apos;"
+        errorLine1="        android:clickable=&quot;true&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/unlink_activity.xml"
+            line="69"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="LabelFor"
+        message="Missing accessibility label: provide either a view with an `android:labelFor` that references this view or provide an `android:hint`"
+        errorLine1="  &lt;EditText android:layout_width=&quot;wrap_content&quot; android:layout_height=&quot;wrap_content&quot; android:id=&quot;@+id/recognizeResulttextView&quot; android:visibility=&quot;gone&quot; android:layout_alignParentBottom=&quot;true&quot; android:layout_alignParentLeft=&quot;true&quot; android:layout_toLeftOf=&quot;@+id/sendButtonn2&quot; android:inputType=&quot;text&quot; android:imeOptions=&quot;actionSend&quot; android:maxLines=&quot;3&quot;/>"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="65"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;📌 钉住当前壁纸（点击切换）&quot;, should use `@string` resource"
+        errorLine1="    android:text=&quot;📌 钉住当前壁纸（点击切换）&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="20"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;设为壁纸&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;设为壁纸&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="44"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;换一张&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;换一张&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="53"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;添加快捷&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;添加快捷&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="61"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_alignParentLeft`; already defining `layout_alignParentStart` with `targetSdkVersion` 28"
+        errorLine1="      android:layout_alignParentLeft=&quot;false&quot;"
+        errorLine2="      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/auto_run_settings_activity.xml"
+            line="23"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_alignParentLeft`; already defining `layout_alignParentStart` with `targetSdkVersion` 28"
+        errorLine1="        android:layout_alignParentLeft=&quot;false&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/auto_run_settings_activity.xml"
+            line="33"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_alignParentLeft`; already defining `layout_alignParentStart` with `targetSdkVersion` 28"
+        errorLine1="        android:layout_alignParentLeft=&quot;false&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/pin_shortcut_confirm_activity.xml"
+            line="17"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_alignParentRight`; already defining `layout_alignParentEnd` with `targetSdkVersion` 28"
+        errorLine1="        android:layout_alignParentRight=&quot;false&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/pin_shortcut_confirm_activity.xml"
+            line="19"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_alignParentLeft`; already defining `layout_alignParentStart` with `targetSdkVersion` 28"
+        errorLine1="android:layout_alignParentLeft=&quot;false&quot;"
+        errorLine2="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/pin_shortcut_confirm_activity.xml"
+            line="30"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_alignParentRight`; already defining `layout_alignParentEnd` with `targetSdkVersion` 28"
+        errorLine1="android:layout_alignParentRight=&quot;false&quot;"
+        errorLine2="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/pin_shortcut_confirm_activity.xml"
+            line="32"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `drawableRight`; already defining `drawableEnd` with `targetSdkVersion` 28"
+        errorLine1="    android:drawableRight=&quot;@drawable/button_yjt&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/settings_activity.xml"
+            line="28"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `drawableRight`; already defining `drawableEnd` with `targetSdkVersion` 28"
+        errorLine1="    android:drawableRight=&quot;@drawable/button_yjt&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/settings_activity.xml"
+            line="42"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `drawableRight`; already defining `drawableEnd` with `targetSdkVersion` 28"
+        errorLine1="    android:drawableRight=&quot;@drawable/button_yjt&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/settings_activity.xml"
+            line="56"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `drawableRight`; already defining `drawableEnd` with `targetSdkVersion` 28"
+        errorLine1="    android:drawableRight=&quot;@drawable/button_yjt&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/settings_activity.xml"
+            line="70"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `drawableRight`; already defining `drawableEnd` with `targetSdkVersion` 28"
+        errorLine1="    android:drawableRight=&quot;@drawable/button_yjt&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/settings_activity.xml"
+            line="84"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `drawableRight`; already defining `drawableEnd` with `targetSdkVersion` 28"
+        errorLine1="    android:drawableRight=&quot;@drawable/button_yjt&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/settings_activity.xml"
+            line="98"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `drawableRight`; already defining `drawableEnd` with `targetSdkVersion` 28"
+        errorLine1="    android:drawableRight=&quot;@drawable/button_yjt&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/settings_activity.xml"
+            line="112"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_alignParentLeft`; already defining `layout_alignParentStart` with `targetSdkVersion` 28"
+        errorLine1="  &lt;androidx.recyclerview.widget.RecyclerView android:id=&quot;@+id/articleListmy_recycler_view&quot; android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;wrap_content&quot; android:layout_above=&quot;@+id/recognizeResulttextView&quot; android:layout_alignParentStart=&quot;false&quot; android:layout_alignParentLeft=&quot;false&quot; android:layout_alignParentTop=&quot;true&quot; android:scrollbars=&quot;vertical&quot;/>"
+        errorLine2="                                                                                                                                                                                                                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="3"
+            column="257"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_alignParentLeft`; already defining `layout_alignParentStart` with `targetSdkVersion` 28"
+        errorLine1="  &lt;ImageView android:id=&quot;@+id/preview_image&quot; android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;wrap_content&quot; android:layout_margin=&quot;16dp&quot; android:scaleType=&quot;centerCrop&quot; android:background=&quot;@color/gray&quot; android:layout_above=&quot;@+id/recognizeResulttextView&quot; android:layout_alignParentStart=&quot;true&quot; android:layout_alignParentLeft=&quot;true&quot; android:layout_alignParentTop=&quot;true&quot; android:visibility=&quot;visible&quot;/>"
+        errorLine2="                                                                                                                                                                                                                                                                                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="5"
+            column="303"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_alignParentLeft`; already defining `layout_alignParentStart` with `targetSdkVersion` 28"
+        errorLine1="  &lt;ProgressBar style=&quot;?android:attr/progressBarStyleHorizontal&quot; android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;2dp&quot; android:id=&quot;@+id/volumeIndicatorprogressBar&quot; android:layout_alignParentLeft=&quot;true&quot; android:layout_alignParentStart=&quot;false&quot; android:max=&quot;30&quot; android:progress=&quot;0&quot; android:layout_margin=&quot;4dp&quot; android:visibility=&quot;invisible&quot; android:progressDrawable=&quot;@drawable/progress_horizontal1&quot;/>"
+        errorLine2="                                                                                                                                                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="6"
+            column="174"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Consider replacing `android:layout_alignParentRight` with `android:layout_alignParentEnd=&quot;true&quot;` to better support right-to-left layouts"
+        errorLine1="  &lt;Button android:layout_width=&quot;48dp&quot; android:layout_height=&quot;48dp&quot; android:id=&quot;@+id/commandRecognizebutton2&quot; android:layout_margin=&quot;5dp&quot; android:background=&quot;@drawable/microphone&quot; android:layout_alignParentBottom=&quot;true&quot; android:layout_alignParentRight=&quot;true&quot;/>"
+        errorLine2="                                                                                                                                                                                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="7"
+            column="220"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Consider replacing `android:layout_toLeftOf` with `android:layout_toStartOf=&quot;@+id/commandRecognizebutton2&quot;` to better support right-to-left layouts"
+        errorLine1="  &lt;Button android:layout_width=&quot;48dp&quot; android:layout_height=&quot;48dp&quot; android:id=&quot;@+id/sendButtonn2&quot; android:layout_margin=&quot;5dp&quot; android:background=&quot;@drawable/sendicon2048x1841gjc8zxl8512&quot; android:layout_alignParentBottom=&quot;true&quot; android:layout_toLeftOf=&quot;@+id/commandRecognizebutton2&quot;/>"
+        errorLine2="                                                                                                                                                                                                                                  ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="8"
+            column="227"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_alignParentLeft`; already defining `layout_alignParentStart` with `targetSdkVersion` 28"
+        errorLine1="  &lt;TextView android:id=&quot;@+id/statustextView&quot; android:layout_width=&quot;wrap_content&quot; android:layout_height=&quot;wrap_content&quot; android:layout_alignParentLeft=&quot;false&quot; android:layout_alignParentStart=&quot;false&quot; android:layout_below=&quot;@+id/recognizeResulttextView&quot; android:textColor=&quot;@color/yellow&quot; android:textSize=&quot;28sp&quot;/>"
+        errorLine2="                                                                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="9"
+            column="119"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_alignParentLeft`; already defining `layout_alignParentStart` with `targetSdkVersion` 28"
+        errorLine1="    android:layout_alignParentLeft=&quot;true&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="15"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_alignParentLeft`; already defining `layout_alignParentStart` with `targetSdkVersion` 28"
+        errorLine1="    android:layout_alignParentLeft=&quot;true&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="34"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Consider replacing `android:layout_alignParentLeft` with `android:layout_alignParentStart=&quot;true&quot;` to better support right-to-left layouts"
+        errorLine1="  &lt;EditText android:layout_width=&quot;wrap_content&quot; android:layout_height=&quot;wrap_content&quot; android:id=&quot;@+id/recognizeResulttextView&quot; android:visibility=&quot;gone&quot; android:layout_alignParentBottom=&quot;true&quot; android:layout_alignParentLeft=&quot;true&quot; android:layout_toLeftOf=&quot;@+id/sendButtonn2&quot; android:inputType=&quot;text&quot; android:imeOptions=&quot;actionSend&quot; android:maxLines=&quot;3&quot;/>"
+        errorLine2="                                                                                                                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="65"
+            column="194"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Consider replacing `android:layout_toLeftOf` with `android:layout_toStartOf=&quot;@+id/sendButtonn2&quot;` to better support right-to-left layouts"
+        errorLine1="  &lt;EditText android:layout_width=&quot;wrap_content&quot; android:layout_height=&quot;wrap_content&quot; android:id=&quot;@+id/recognizeResulttextView&quot; android:visibility=&quot;gone&quot; android:layout_alignParentBottom=&quot;true&quot; android:layout_alignParentLeft=&quot;true&quot; android:layout_toLeftOf=&quot;@+id/sendButtonn2&quot; android:inputType=&quot;text&quot; android:imeOptions=&quot;actionSend&quot; android:maxLines=&quot;3&quot;/>"
+        errorLine2="                                                                                                                                                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/sister_future.xml"
+            line="65"
+            column="232"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_alignParentLeft`; already defining `layout_alignParentStart` with `targetSdkVersion` 28"
+        errorLine1="        android:layout_alignParentLeft=&quot;false&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/unlink_activity.xml"
+            line="35"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Redundant attribute `layout_alignParentLeft`; already defining `layout_alignParentStart` with `targetSdkVersion` 28"
+        errorLine1="        android:layout_alignParentLeft=&quot;false&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/unlink_activity.xml"
+            line="44"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Consider replacing `android:layout_marginLeft` with `android:layout_marginStart=&quot;48dp&quot;` to better support right-to-left layouts"
+        errorLine1="        android:layout_marginLeft=&quot;48dp&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/unlink_activity.xml"
+            line="64"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RtlEnabled"
+        message="The project references RTL attributes, but does not explicitly enable or disable RTL support with `android:supportsRtl` in the manifest">
+        <location
+            file="src/main/AndroidManifest.xml"/>
+    </issue>
+
+</issues>
