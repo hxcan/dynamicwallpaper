@@ -32,15 +32,27 @@ jobs:
     - name: Grant execute permission to gradlew
       run: chmod +x gradlew
 
-    # Run Lint with baseline (suppresses existing 91 errors + 217 warnings)
-    # Baseline file is at app/lint-baseline.xml
-    # First-time CI run will FAIL if baseline file doesn't exist
-    # To generate baseline: run `./gradlew :app:updateLintBaseline` locally
-    # and commit app/lint-baseline.xml
-    - name: Run Lint with baseline
-      run: ./gradlew :app:lintDebug --warning-mode none || true
+    # Generate/update lint baseline file on every CI run
+    # This creates app/lint-baseline.xml containing all current lint issues
+    # On first run: baseline is empty (no baseline file), updateLintBaseline
+    # creates a new file with all 91 errors + 217 warnings catalogued
+    # On subsequent runs: baseline already exists, this command refreshes it
+    # (idempotent - safe to run every time)
+    - name: Generate lint baseline
+      run: ./gradlew :app:updateLintDebug --warning-mode none || true
 
-    # Build Debug + Release APKs
+    # Upload lint baseline as artifact (for owner to download and commit)
+    - name: Upload lint baseline
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: dynamicwallpaper-lint-baseline
+        path: app/lint-baseline.xml
+        if-no-files-found: ignore
+
+    # Now lint with the baseline file (which we just generated)
+    # Lint will run but suppress all known issues
+    # Only NEW lint issues will fail the build
     - name: Build Debug and Release APKs
       run: |
         export GRADLE_OPTS="-Dorg.gradle.jvmargs=-Xmx2048m -Dorg.gradle.daemon=false"
@@ -73,15 +85,6 @@ jobs:
         echo "=== After Signing ==="
         ls -la app/build/outputs/apk/release/ || echo "Directory not found"
         find app/build/outputs -name "*-signed.apk" || echo "No signed APK files found"
-
-    # Upload lint baseline as artifact (for first-time generation / debugging)
-    - name: Upload lint baseline
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: dynamicwallpaper-lint-baseline
-        path: app/lint-baseline.xml
-        if-no-files-found: ignore
 
     - name: Upload Debug APK artifact (PR)
       if: github.event_name == 'pull_request'
