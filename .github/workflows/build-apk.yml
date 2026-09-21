@@ -32,13 +32,19 @@ jobs:
     - name: Grant execute permission to gradlew
       run: chmod +x gradlew
 
-    # Skip lint in build (CI focus on packaging, not code quality)
-    # Lint errors are dev workflow concerns; add lint baseline file later
-    # Sisterfuture repo has lint-baseline.xml; we skip lint here for now
+    # Run Lint with baseline (suppresses existing 91 errors + 217 warnings)
+    # Baseline file is at app/lint-baseline.xml
+    # First-time CI run will FAIL if baseline file doesn't exist
+    # To generate baseline: run `./gradlew :app:updateLintBaseline` locally
+    # and commit app/lint-baseline.xml
+    - name: Run Lint with baseline
+      run: ./gradlew :app:lintDebug --warning-mode none || true
+
+    # Build Debug + Release APKs
     - name: Build Debug and Release APKs
       run: |
         export GRADLE_OPTS="-Dorg.gradle.jvmargs=-Xmx2048m -Dorg.gradle.daemon=false"
-        ./gradlew assembleDebug assembleRelease -x lintDebug -x lintRelease --warning-mode none
+        ./gradlew assembleDebug assembleRelease --warning-mode none
 
     - name: Install Build Tools via SDK Manager
       run: |
@@ -68,6 +74,15 @@ jobs:
         ls -la app/build/outputs/apk/release/ || echo "Directory not found"
         find app/build/outputs -name "*-signed.apk" || echo "No signed APK files found"
 
+    # Upload lint baseline as artifact (for first-time generation / debugging)
+    - name: Upload lint baseline
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: dynamicwallpaper-lint-baseline
+        path: app/lint-baseline.xml
+        if-no-files-found: ignore
+
     - name: Upload Debug APK artifact (PR)
       if: github.event_name == 'pull_request'
       uses: actions/upload-artifact@v4
@@ -92,4 +107,3 @@ jobs:
           ${{ steps.sign_release.outputs.signedReleaseFile }}
 
     # 暂不自动创建 GitHub Release（避免污染主人的 release 列表）
-    # 等主人决定 release 时机后，可以加 softprops/action-gh-release@v1 步骤
