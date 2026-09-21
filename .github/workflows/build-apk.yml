@@ -10,6 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    # Only commit baseline changes on push to master (not on PRs)
+    permissions:
+      contents: write
+
     steps:
     - uses: actions/checkout@v4
 
@@ -32,31 +36,44 @@ jobs:
     - name: Grant execute permission to gradlew
       run: chmod +x gradlew
 
-    # Generate/update lint baseline file on every CI run
-    # This creates app/lint-baseline.xml containing all current lint issues
-    # On first run: baseline is empty (no baseline file), updateLintBaseline
-    # creates a new file with all 91 errors + 217 warnings catalogued
-    # On subsequent runs: baseline already exists, this command refreshes it
-    # (idempotent - safe to run every time)
-    - name: Generate lint baseline
-      run: ./gradlew :app:updateLintDebug --warning-mode none || true
+    # Step 1: Generate lint baseline if it doesn't exist
+    # This creates app/lint-baseline.xml containing ALL current lint issues
+    # Subsequent runs will use this baseline to suppress existing issues
+    - name: Generate Lint baseline (if missing)
+      run: |
+        if [ ! -f app/lint-baseline.xml ]; then
+          echo "Baseline file not found, generating..."
+          ./gradlew :app:updateLintBaseline --warning-mode none || true
+        else
+          echo "Baseline file exists, skipping generation"
+        fi
 
-    # Upload lint baseline as artifact (for owner to download and commit)
-    - name: Upload lint baseline
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: dynamicwallpaper-lint-baseline
-        path: app/lint-baseline.xml
-        if-no-files-found: ignore
+    # Step 2: Run lint (will use baseline to suppress existing issues)
+    # If new issues appear, they will fail the build
+    - name: Run Lint with baseline
+      run: ./gradlew :app:lintDebug --warning-mode none
 
-    # Now lint with the baseline file (which we just generated)
-    # Lint will run but suppress all known issues
-    # Only NEW lint issues will fail the build
+    # Step 3: Build Debug + Release APKs
     - name: Build Debug and Release APKs
       run: |
         export GRADLE_OPTS="-Dorg.gradle.jvmargs=-Xmx2048m -Dorg.gradle.daemon=false"
         ./gradlew assembleDebug assembleRelease --warning-mode none
+
+    # Step 4: Auto-commit generated baseline back to repo (only on push to master)
+    - name: Auto-commit lint baseline
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      run: |
+        if [ -f app/lint-baseline.xml ]; then
+          git config user.name "sisterfuture-bot"
+          git config user.email "etakka@gmail.com"
+          git add app/lint-baseline.xml
+          if git diff --cached --quiet; then
+            echo "No baseline changes to commit"
+          else
+            git commit -m "ci(lint): auto-generated baseline from CI first run"
+            git push
+          fi
+        fi
 
     - name: Install Build Tools via SDK Manager
       run: |
