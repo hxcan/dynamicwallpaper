@@ -302,6 +302,11 @@ public class MyLiveWallpaperService extends WallpaperService implements ShutDown
       @Override
       public void run()
       {
+        // ✅ 无论是否钉住，都先检查 21 点关机（不被换图影响）
+        if (shutDownAt2100Logic != null)
+        {
+          shutDownAt2100Logic.checkShutDownTime();
+        }
         // ✅ 无论是否可见，都换图
         if (pinned) {
             com.stupidbeauty.dynamicwallpaper.utils.FileLogger.i("Wallpaper", "[PIN] autoRefreshRunnable skipped (pinned=true)");
@@ -485,12 +490,6 @@ public class MyLiveWallpaperService extends WallpaperService implements ShutDown
             reloadInProgress = false; // 加载失败也重置，避免卡住
             }
           });
-
-        // ✅ 触发 21点关机逻辑
-        if (shutDownAt2100Logic != null)
-        {
-          shutDownAt2100Logic.checkShutDownTime();
-        }
       });
     }
 
