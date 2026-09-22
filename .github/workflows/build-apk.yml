@@ -139,6 +139,33 @@ jobs:
     # Step 6: Create CI Release on master push (mirrors hxcan/sisterfuture workflow)
     # Adds the auto-generated APK to a GitHub Release so the owner can download
     # signed builds without digging through Actions artifacts.
+    # Renames APKs to semantic names (dynamicwallpaper-<variant>-v<V>-<C>-<TS>.apk)
+    # matching the format advertised in hxcan/sisterfuture's release body.
+    - name: Rename APKs for release
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      id: rename_apks
+      run: |
+        set -e
+        # Read versionName/versionCode from app/build.gradle (best effort)
+        VERSION_NAME=$(grep -oE 'versionName[[:space:]]+"[^"]+"' app/build.gradle | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
+        VERSION_CODE=$(grep -oE 'versionCode[[:space:]]+[0-9]+' app/build.gradle | head -1 | awk '{print $2}')
+        VERSION_NAME=${VERSION_NAME:-0.0.0}
+        VERSION_CODE=${VERSION_CODE:-0}
+        BUILD_TS=$(date -u +%Y%m%d-%H%M)
+        echo "Detected: versionName=${VERSION_NAME} versionCode=${VERSION_CODE} buildTs=${BUILD_TS}"
+
+        DEBUG_SRC=$(ls app/build/outputs/apk/debug/*.apk | head -1)
+        DEBUG_DST="dynamicwallpaper-debug-v${VERSION_NAME}-${VERSION_CODE}-${BUILD_TS}.apk"
+        cp "${DEBUG_SRC}" "${DEBUG_DST}"
+
+        RELEASE_SRC="${{ steps.sign_release.outputs.signedReleaseFile }}"
+        RELEASE_DST="dynamicwallpaper-release-v${VERSION_NAME}-${VERSION_CODE}-${BUILD_TS}-signed.apk"
+        cp "${RELEASE_SRC}" "${RELEASE_DST}"
+
+        echo "debug_artifact=${DEBUG_DST}" >> "$GITHUB_OUTPUT"
+        echo "release_artifact=${RELEASE_DST}" >> "$GITHUB_OUTPUT"
+        ls -la dynamicwallpaper-*.apk
+
     - name: Create CI Release (master push)
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       uses: softprops/action-gh-release@v1
@@ -146,8 +173,8 @@ jobs:
         tag_name: ci/auto-build-${{ github.run_number }}
         name: 🤖 CI Build #${{ github.run_number }}
         files: |
-          app/build/outputs/apk/debug/*.apk
-          ${{ steps.sign_release.outputs.signedReleaseFile }}
+          ${{ steps.rename_apks.outputs.debug_artifact }}
+          ${{ steps.rename_apks.outputs.release_artifact }}
         prerelease: true
         generate_release_notes: true
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -160,10 +187,10 @@ jobs:
 
           ---
           ### 📦 下载
-          - **Debug 版**: `app-debug-v*.apk` (自动签名，仅供测试)
-            - 文件名格式：`app-debug-v{versionName}-{versionCode}-{buildTime}.apk`
-          - **Release 版**: `app-release-signed-*.apk` (正式签名，可覆盖安装)
-            - 文件名格式：`app-release-v{versionName}-{versionCode}-{buildTime}-signed.apk`
+          - **Debug 版**: `dynamicwallpaper-debug-v*.apk` (自动签名，仅供测试)
+            - 文件名格式：`dynamicwallpaper-debug-v{versionName}-{versionCode}-{buildTime}.apk`
+          - **Release 版**: `dynamicwallpaper-release-v*-signed.apk` (正式签名，可覆盖安装)
+            - 文件名格式：`dynamicwallpaper-release-v{versionName}-{versionCode}-{buildTime}-signed.apk`
 
           ⚠️ Release 版本使用正式证书签名，支持覆盖安装和正式分发。
 
