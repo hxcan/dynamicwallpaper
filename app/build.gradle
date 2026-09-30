@@ -70,7 +70,7 @@ android
 
 // #https://stackoverflow.com/questions/65380359/lomboks-access-to-jdk-compilers-internal-packages-incompatible-with-java-16
 
-# enable internal JDK API access at runtime
+// enable internal JDK API access at runtime
 tasks.withType(JavaCompile).configureEach {
   options.fork = true
   options.forkOptions.jvmArgs +=
