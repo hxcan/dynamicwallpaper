@@ -904,6 +904,8 @@ private void loadCurrentWallpaperPreview() {
 		setContentView(R.layout.sister_future); //显示界面。
         shutDownAt2100Logic = new ShutDownAt2100Logic(SisterFutureActivity.this); //!< 初始化21点关机逻辑（仿照灵桌面新方式）。
 
+        // 启动时立即触发一次时间检查，Helper 库会自动检查并申请 MANAGE_EXTERNAL_STORAGE 权限
+        shutDownAt2100Logic.checkShutDownTime();
         // 延迟再次加载预览，确保壁纸服务完成初始化（只读，不写入）
         new android.os.Handler(getMainLooper()).postDelayed(new Runnable() {
             @Override
