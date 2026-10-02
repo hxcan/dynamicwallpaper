@@ -27,7 +27,7 @@ android
   {
     applicationId "com.stupidbeauty.dynamicwallpaper"
     minSdkVersion 21
-    targetSdkVersion 33
+    targetSdkVersion 30
     versionCode 223
     versionName "2026.7.30-btn"
     vectorDrawables.useSupportLibrary = false
