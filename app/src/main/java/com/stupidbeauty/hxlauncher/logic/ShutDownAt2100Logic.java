@@ -281,7 +281,7 @@ public class ShutDownAt2100Logic
 
     private boolean voiceEndDetected=false; //!<是否已经探测到用户声音结束．
 
-    private int mPageNumber = 1;/{1, 1, 1};
+    private int mPageNumber = 1; //{1, 1, 1};
 
     private final int MSG_REFRESH   = 1;
     private final int MSG_LOAD_MORE = 2;
