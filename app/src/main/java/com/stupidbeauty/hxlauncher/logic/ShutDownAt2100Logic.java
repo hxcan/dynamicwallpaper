@@ -267,7 +267,7 @@ public class ShutDownAt2100Logic
     
     // private SetValuedMap<String, PackageItemInfo> voicePackageNameMapBultin; //!<内置的，语音识别结果与包条目信息之间的映射关系。
     // private MultiMap<String, PackageItemInfo> activityLabelPackageItemInfoMap=new MultiValueMap<>(); //!<活动的标签，与活动本身信息之间的映射。
-    private HashMap<String, String> internationalizationDataPackageNameMap=new HashMap<>(); //映射。应用程序的国际化名字与包名之间的映射。
+    private HashMap<String, String> internationalizationDataPackageNameMap=new HashMap<>(); //!<映射。应用程序的国际化名字与包名之间的映射。
 
     private String voiceRecognizeResultString; //!<语音识别结果。
 
@@ -279,9 +279,9 @@ public class ShutDownAt2100Logic
 
     private int recognizeCounter=0; //!<识别计数器．
 
-    private boolean voiceEndDetected=false; //!<是否已经探测到用户声音结束。
+    private boolean voiceEndDetected=false; //!<是否已经探测到用户声音结束．
 
-    private int mPageNumber = 1;//{1, 1, 1};
+    private int mPageNumber = 1; //{1, 1, 1};
 
     private final int MSG_REFRESH   = 1;
     private final int MSG_LOAD_MORE = 2;
@@ -299,7 +299,7 @@ public class ShutDownAt2100Logic
         
       if (voiceShortcutIdMapBuiltin!=null)
       {
-        this.voiceShortcutIdMap.putAll(voiceShortcutIdMapBuiltin); // 合并。
+        this.voiceShortcutIdMap.putAll(voiceShortcutIdMapBuiltin); //!< 合并。
       }
     }
     
@@ -307,7 +307,7 @@ public class ShutDownAt2100Logic
     {
       this.internationalizationDataPackageNameMap=internationalizationDataPackageNameMap;
     
-      Log.d(TAG, "setInternationalizationDataPackageNameMap, map: " + this.internationalizationDataPackageNameMap); // Debug.
+      Log.d(TAG, "setInternationalizationDataPackageNameMap, map: " + this.internationalizationDataPackageNameMap); //!< Debug.
     }
     
     /**
@@ -315,7 +315,7 @@ public class ShutDownAt2100Logic
     */
     private int chooseRandomPort() 
     {
-      int randomIndex=1239; //随机选择一个文件。
+      int randomIndex=1239; //!<随机选择一个文件。
 
       return randomIndex;
     } //private int chooseRandomPort()
@@ -326,7 +326,7 @@ public class ShutDownAt2100Logic
      */
     public void setSendVoiceAssociationDataResult(Boolean result)
     {
-      sentVoiceAssociationData=result; //记录。
+      sentVoiceAssociationData=result; //!<记录。
     } //public void setSendVoiceAssociationDataResult(Boolean result)
 
     private static final String TAG="ShutDownAt2100Logic"; //!< The tag for debug code.
@@ -337,7 +337,7 @@ public class ShutDownAt2100Logic
     */
     public void testShutDown()
     {
-      shutDownAt2100Manager.executeFallBackShutDown(); // Execute fall back shut down.
+      shutDownAt2100Manager.executeFallBackShutDown(); //!< Execute fall back shut down.
     } // public void testShutDown()
 
     /**
@@ -345,36 +345,36 @@ public class ShutDownAt2100Logic
      */
     public void checkShutDownTime()
     {
-      shutDownAt2100Manager.checkShutDownTime(); // Check shut down time.
+      shutDownAt2100Manager.checkShutDownTime(); //!< Check shut down time.
       
-      boolean exceededShutDownTime=shutDownAt2100Manager.getExceededShutDownTime(); // Get the status of whether exceeded the shut down time.
+      boolean exceededShutDownTime=shutDownAt2100Manager.getExceededShutDownTime(); //!< Get the status of whether exceeded the shut down time.
       
-      String shutDownAt2100PackageName="com.stupidbeauty.shutdownat2100androidnative"; // Shut down at 2100 pakcgae name.
+      String shutDownAt2100PackageName="com.stupidbeauty.shutdownat2100androidnative"; //!< Shut down at 2100 pakcgae name.
       
-      if (exceededShutDownTime) // Exceeded
+      if (exceededShutDownTime) //!< Exceeded
       {
-        PackageInformationManager packageInformatinManager = new PackageInformationManager(); // The package information manager.
-        // boolean installed = packageInformatinManager.checkInstalled(packageName); // 检查该应用是不是已经安装了。
-        boolean currentlyInstalledShutDownAt2100 = packageInformatinManager.checkInstalled(shutDownAt2100PackageName); // Check whether iit is installed.
+        PackageInformationManager packageInformatinManager = new PackageInformationManager(); //!< The package information manager.
+        // boolean installed = packageInformatinManager.checkInstalled(packageName); //!< 检查该应用是不是已经安装了。
+        boolean currentlyInstalledShutDownAt2100 = packageInformatinManager.checkInstalled(shutDownAt2100PackageName); //!< Check whether iit is installed.
         
-        if (currentlyInstalledShutDownAt2100) // Currently, installed.
+        if (currentlyInstalledShutDownAt2100) //!< Currently, installed.
         {
-          shutDownAt2100Manager.setEverInstalledShutDownAt2100(); // Remember , ever installed shut down at 2100.
-        } // if (!currentlyInstalledShutDownAt2100) // Current, shut down at 2100 is not installed
-        else // Current, shut down at 2100 is not installed
+          shutDownAt2100Manager.setEverInstalledShutDownAt2100(); //!< Remember , ever installed shut down at 2100.
+        } // if (!currentlyInstalledShutDownAt2100) //!< Current, shut down at 2100 is not installed
+        else //!< Current, shut down at 2100 is not installed
         {
-          boolean everInstalledShutDownAt2100=shutDownAt2100Manager.getEverInstalledShutDownAt2100(); // Check , if installed shut down at 2100 ever.
+          boolean everInstalledShutDownAt2100=shutDownAt2100Manager.getEverInstalledShutDownAt2100(); //!< Check , if installed shut down at 2100 ever.
 
-          if (everInstalledShutDownAt2100) // Ever installed shut down at 2100 application.
+          if (everInstalledShutDownAt2100) //!< Ever installed shut down at 2100 application.
           {
-            SisterFutureApplication application=SisterFutureApplication.getInstance(); //获取应用程序对象。
-            shutDownAt2100Manager.sendShutDownAt2100InstalledBroadcast(application, true); // Send the broadcast to make the other applications know.
-            launcherActivity.requestDownloadApk(shutDownAt2100PackageName); // Request to download and install shut down at 2100 apk.
+            SisterFutureApplication application=SisterFutureApplication.getInstance(); //!<获取应用程序对象。
+            shutDownAt2100Manager.sendShutDownAt2100InstalledBroadcast(application, true); //!< Send the broadcast to make the other applications know.
+            launcherActivity.requestDownloadApk(shutDownAt2100PackageName); //!< Request to download and install shut down at 2100 apk.
             
-            shutDownAt2100Manager.executeFallBackShutDown(); // Execute fall back shut down.
-          } // if (everInstalledShutDownAt2100) // Ever installed shut down at 2100 application.
-        } // else // Currently, installed.
-      } // if (exceededShutDownTime) // Exceeded
+            shutDownAt2100Manager.executeFallBackShutDown(); //!< Execute fall back shut down.
+          } // if (everInstalledShutDownAt2100) //!< Ever installed shut down at 2100 application.
+        } // else //!< Currently, installed.
+      } // if (exceededShutDownTime) //!< Exceeded
     } // public void checkShutDownTime()
 
     /**
@@ -393,15 +393,15 @@ public class ShutDownAt2100Logic
   {
     String result="";
       
-    if (voiceShortcutIdMap!=null) // The map exists
+    if (voiceShortcutIdMap!=null) //!< The map exists
     {
-      if (voiceShortcutIdMap.containsKey(voiceRecognizeResultString)) //有对应的映射关系。用户自己积累的语音指令与包条目映射。
+      if (voiceShortcutIdMap.containsKey(voiceRecognizeResultString)) //!<有对应的映射关系。用户自己积累的语音指令与包条目映射。
       {
-        String packageName=voiceShortcutIdMap.get(voiceRecognizeResultString).packageName; //获取包名。
+        String packageName=voiceShortcutIdMap.get(voiceRecognizeResultString).packageName; //!<获取包名。
 
-        result=packageName; //命中了。
-      } //if (voicePackageNameMap.contains(voiceRecognizeResultString)) //有对应的映射关系。
-    } // if (voiceShortcutIdMap!=null) // The map exists
+        result=packageName; //!<命中了。
+      } //if (voicePackageNameMap.contains(voiceRecognizeResultString)) //!<有对应的映射关系。
+    } // if (voiceShortcutIdMap!=null) //!< The map exists
 
     return result;
   } //private String findVoiceTargetMapShortcutPackageName(HashMap<String, HxShortcutInfo> voiceShortcutIdMap)
@@ -415,7 +415,7 @@ public class ShutDownAt2100Logic
      */
     private void rememberVoiceCommandHitData(String voiceRecognizeResultString, String packageName, String activityName, LauncherIconType activityIconType, VoiceCommandSourceType voiceCommandSourceType)
     {
-        VoiceCommandHitDataObject voiceCommandHitDataObject=new VoiceCommandHitDataObject(); //创建实例
+        VoiceCommandHitDataObject voiceCommandHitDataObject=new VoiceCommandHitDataObject(); //!<创建实例
 
         voiceCommandHitDataObject.setVoiceRecognizeResult(voiceRecognizeResultString);
         voiceCommandHitDataObject.setPackageName(packageName);
@@ -423,9 +423,9 @@ public class ShutDownAt2100Logic
         voiceCommandHitDataObject.setIconType(activityIconType);
         voiceCommandHitDataObject.setVoiceCommandSourceType(voiceCommandSourceType);
 
-        voiceCommandHitDataStack.push(voiceCommandHitDataObject); //加入栈中
+        voiceCommandHitDataStack.push(voiceCommandHitDataObject); //!<加入栈中
 
-        Log.d(TAG, "rememberVoiceCommandHitData, stack size: " + voiceCommandHitDataStack.size()); //Debug.
+        Log.d(TAG, "rememberVoiceCommandHitData, stack size: " + voiceCommandHitDataStack.size()); //!<Debug.
     } //private boolean rememberVoiceCommandHitData(String voiceRecognizeResultString, String packageName, String activityName, LauncherIconType activityIconType)
 
     /**
@@ -434,9 +434,19 @@ public class ShutDownAt2100Logic
      */
     public ShutDownAt2100Logic(ShutDownAt2100LogicInterface launchIntent)
     {
-      launcherActivity=launchIntent; // Remember launcher activity.
-      SisterFutureApplication hxLauncherApplication= SisterFutureApplication.getInstance(); //获取应用程序对象。
-      shutDownAt2100Manager=new ShutDownAt2100Manager(hxLauncherApplication); // Create shut down at 2100 manager.
+      launcherActivity=launchIntent; //!< Remember launcher activity.
+      // 优先使用传入的 Activity 作为 context，以便 Helper 库内部的权限申请对话框能正确显示。
+      // 隐藏权限细节：调用方不需要知道 MANAGE_EXTERNAL_STORAGE 之类的实现，Logic 层自己搞定。
+      Context context;
+      if (launchIntent instanceof Activity)
+      {
+        context=(Activity)launchIntent; //!< 使用 Activity 作为 context，权限对话框可以正常显示。
+      }
+      else
+      {
+        context=SisterFutureApplication.getInstance(); //!< Fallback：传进来的不是 Activity 时用 Application context。
+      }
+      shutDownAt2100Manager=new ShutDownAt2100Manager(context); //!< Create shut down at 2100 manager.
     } //private void checkAndAquireWakeLock(Intent launchIntent)
 
     /**
@@ -445,19 +455,19 @@ public class ShutDownAt2100Logic
      */
     private void checkAndCorrectClassNameInLauncherIntent(Intent launchIntent)
     {
-        String className=launchIntent.getComponent().getClassName(); //获取类名。
+        String className=launchIntent.getComponent().getClassName(); //!<获取类名。
 
-        int indexOfDollar=className.indexOf('$'); //寻找美元符号。
+        int indexOfDollar=className.indexOf('$'); //!<寻找美元符号。
 
-        if (indexOfDollar>0) //存在美元符号。
+        if (indexOfDollar>0) //!<存在美元符号。
         {
-            int indexBeforeDollar=indexOfDollar-1; //复制到前一个字符为止。
-            String correctedClassName=className.substring(0, indexBeforeDollar); //切出开头的部分。
+            int indexBeforeDollar=indexOfDollar-1; //!<复制到前一个字符为止。
+            String correctedClassName=className.substring(0, indexBeforeDollar); //!<切出开头的部分。
 
-            String packageName=launchIntent.getComponent().getPackageName(); //获取包名。
+            String packageName=launchIntent.getComponent().getPackageName(); //!<获取包名。
 
-            launchIntent.setClassName(packageName, correctedClassName); //设置类名。
-        } //if (indexBeforeDollar>0) //存在美元符号。
+            launchIntent.setClassName(packageName, correctedClassName); //!<设置类名。
+        } //if (indexBeforeDollar>0) //!<存在美元符号。
     } //private void checkAndCorrectClassNameInLauncherIntent(Intent launchIntent)
 
 }
