@@ -16,15 +16,16 @@
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
   <uses-permission android:name="android.permission.VIBRATE"/>
   <uses-permission android:name="android.permission.SET_WALLPAPER"/>
-  <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+  <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" tools:ignore="QueryAllPackagesPermission"/>
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
   <application android:allowBackup="true" android:icon="@drawable/preview287png" android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar" android:logo="@drawable/preview287png" android:name="com.stupidbeauty.sisterfuture.SisterFutureApplication" android:fullBackupContent="@xml/backup_descriptor" tools:ignore="GoogleAppIndexingWarning">
-    <activity android:name="com.stupidbeauty.sisterfuture.SisterFutureActivity" android:screenOrientation="portrait" android:label="@string/app_name">
+    <activity android:name="com.stupidbeauty.sisterfuture.SisterFutureActivity" android:screenOrientation="portrait" android:label="@string/app_name" android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <service android:name="com.stupidbeauty.dynamicwallpaper.service.MyLiveWallpaperService" android:permission="android.permission.BIND_WALLPAPER">
+    <service android:name="com.stupidbeauty.dynamicwallpaper.service.MyLiveWallpaperService" android:permission="android.permission.BIND_WALLPAPER" android:exported="true">
       <intent-filter>
         <action android:name="android.service.wallpaper.WallpaperService"/>
       </intent-filter>
