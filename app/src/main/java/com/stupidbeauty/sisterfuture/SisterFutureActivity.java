@@ -127,7 +127,7 @@ import com.stupidbeauty.msclearnfootball.VoiceRecognizeResult;
 // import com.iflytek.cloud.SpeechError;
 // import com.iflytek.cloud.SpeechRecognizer;
 // import com.iflytek.cloud.SpeechUtility;
-import com.stupidbeauty.sisterfuture.network.TongYiClient;
+// import com.stupidbeauty.sisterfuture.network.TongYiClient;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -139,10 +139,10 @@ import java.util.Map;
 import butterknife.ButterKnife;
 // import tv.xiaoqiu.paperred.network.VolleyManager;
 // import com.stupidbeauty.sisterfuture.network.TongYiClient.OnResponseListener;
-import com.koushikdutta.async.http.server.AsyncHttpServer;
-import com.koushikdutta.async.http.server.AsyncHttpServerRequest;
-import com.koushikdutta.async.http.server.AsyncHttpServerResponse;
-import com.koushikdutta.async.http.server.HttpServerRequestCallback;
+// import com.koushikdutta.async.http.server.AsyncHttpServer;
+// import com.koushikdutta.async.http.server.AsyncHttpServerRequest;
+// import com.koushikdutta.async.http.server.AsyncHttpServerResponse;
+// import com.koushikdutta.async.http.server.HttpServerRequestCallback;
 import com.stupidbeauty.lanime.network.volley.MapUtils;
 import com.stupidbeauty.sisterfuture.SisterFutureApplication;
 import com.stupidbeauty.ugmate.common.LogHelper;
@@ -151,13 +151,13 @@ import com.stupidbeauty.x2app.BossResponse;
 import com.stupidbeauty.lanime.Constants;
 // import com.stupidbeauty.lanime.callback.CommitTextCallback;
 // import com.stupidbeauty.lanime.callback.PhoneInformationCallback;
-import com.stupidbeauty.sisterfuture.adapter.MessageAdapter;
 import java.util.Calendar;
+// import com.stupidbeauty.sisterfuture.adapter.MessageAdapter;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation\/system bar) with user interaction.
- *
+ * status bar and navigation/system bar) with user interaction.
+ * 
  */
 public class SisterFutureActivity extends Activity implements TextToSpeech.OnInitListener, ShutDownAt2100LogicInterface
 {
@@ -166,7 +166,7 @@ public class SisterFutureActivity extends Activity implements TextToSpeech.OnIni
 Button addQuickSettingsButton;
 
 // private MessageAdapter messageAdapter;
-// RecyclerView articleListmyRecyclerView;
+  // RecyclerView articleListmyRecyclerView;
 @BindView(R.id.articleListmy_recycler_view) RecyclerView articleListmyRecyclerView; //!< Message list.
 
 @BindView(R.id.set_wallpaper_button)
@@ -184,9 +184,9 @@ android.widget.Button pinnedToggleButton;
 private StringBuilder accumulatedAnswer = new StringBuilder();
 
   private static final int PERMISSIONS_REQUEST = 1; //!<权限请求标识
-  // 假设这是您的通义千问客户端
-  // private TongYiClient tongYiClient;
-  // 在Activity中添加一个变量用于追踪是否正在合成语音
+    // 假设这是您的通义千问客户端
+    // private TongYiClient tongYiClient;
+// 在Activity中添加一个变量用于追踪是否正在合成语音
 private boolean isTtsSpeaking = false;
 
   private static final String PERMISSION_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -202,7 +202,7 @@ private boolean isTtsSpeaking = false;
     private static final int LanServicePort = 10471;
 
     private String voiceRecognizeResultString; //!<语音识别结果。
-  // private RequestQueue mQueue; //!<Volley请求队列。
+    // private RequestQueue mQueue; //!<Volley请求队列。
 
     private Vibrator vibrator;
     
@@ -223,7 +223,7 @@ private boolean isTtsSpeaking = false;
 	@BindView(R.id.volumeIndicatorprogressBar)
 	ProgressBar volumeIndicatorprogressBar; //!<用来显示音量的进度条。
 
-	@BindView(R.id.recognizeResulttextView) EditText recognizeResulttextView; //!<语音识别结果。
+	@BindView(R.id.recognizeResulttextView) EditText recognizeResulttextView; //!<识别结果。
 
 @OnClick(R.id.add_quick_settings_button)
 public void onAddQuickSettingsClicked() {
@@ -266,42 +266,34 @@ public void onSetWallpaperClicked() {
 
     }
 
-    /**
-     * 判断当前是否处于21点关机时段（21:00 - 次日06:00）。
-     *
-     * @return true表示处于关机时段，不允许切换壁纸；false表示可以正常切换。
-     */
-    private boolean isInShutdownPeriod() {
-        Calendar cal = Calendar.getInstance();
-        int hour = cal.get(Calendar.HOUR_OF_DAY);
-
-        // 21:00 之后（含）都是关机时段
-        if (hour >= 21) {
-            return true;
-        }
-
-        // 凌晨0-6点（关机后到早晨）也属于关机时段
-        if (hour < 6) {
-            return true;
-        }
-
-        return false;
-    }
+/**
+* 判断当前是否处于21点关机时段（21:00 - 次日06:00）。
+*
+* @return true表示处于关机时段，不允许切换壁纸；false表示可以正常切换。
+*/
+private boolean isInShutdownPeriod() {
+Calendar cal = Calendar.getInstance();
+int hour = cal.get(Calendar.HOUR_OF_DAY);
+if (hour >= 21) {
+return true;
+}
+if (hour < 6) {
+return true;
+}
+return false;
+}
 
 @OnClick(R.id.refresh_wallpaper_button)
 public void onRefreshWallpaperClicked() {
+if (isInShutdownPeriod()) {
+Toast.makeText(this, "当前是21点关机时段，无法切换壁纸", Toast.LENGTH_SHORT).show();
+return;
+}
         com.stupidbeauty.dynamicwallpaper.utils.FileLogger.i("RefreshBtn", "=== onRefreshWallpaperClicked START ===");
-
-        // 🔒 关机时段保护：禁止通过主界面按钮切换壁纸
-        if (isInShutdownPeriod()) {
-            Toast.makeText(this, "当前是21点关机时段，无法切换壁纸", Toast.LENGTH_SHORT).show();
-            return; // 直接返回，不切换壁纸
-        }
-
-        // 1. 通知壁纸服务 Engine 重新加载图片
-        SisterFutureApplication app = (SisterFutureApplication) getApplication();
+    // 1. 通知壁纸服务 Engine 重新加载图片
+    SisterFutureApplication app = (SisterFutureApplication) getApplication();
         com.stupidbeauty.dynamicwallpaper.utils.FileLogger.i("RefreshBtn", "app=" + app);
-        MyEngine engine = app.getMyEngine();
+    MyEngine engine = app.getMyEngine();
         com.stupidbeauty.dynamicwallpaper.utils.FileLogger.i("RefreshBtn", "engine=" + engine);
     if (engine != null) {
             com.stupidbeauty.dynamicwallpaper.utils.FileLogger.i("RefreshBtn", "engine != null, calling reloadWallpaper(false)");
@@ -316,7 +308,7 @@ public void onRefreshWallpaperClicked() {
 
     /**
      * 停止录音。
-     * */
+     */
     public void stopRecordbutton2()
     {
         vibrator = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
@@ -325,32 +317,33 @@ public void onRefreshWallpaperClicked() {
         volumeIndicatorprogressBar.setIndeterminate(true); //处于未决状态，以表示正在识别。
         volumeIndicatorprogressBar.setProgress(0); //进度归零。
 
-        volumeIndicatorprogressBar.setVisibility(View.INVISIBLE); //隐藏音量。
+        volumeIndicatorprogressBar.setVisibility(View.INVISIBLE); //停止录音，则不再显示音量。
 
         progressBar.setVisibility(View.VISIBLE); //显示进度条。
+
         commandRecognizebutton2.setEnabled(false); //禁用按钮。
         commandRecognizebutton2.setVisibility(View.INVISIBLE); //隐藏按钮。
     } //public void stopRecordbutton2()
 
 	/**
 	 * 在线命令词识别。
-	 * */
+	 */
   public void commandRecognizebutton2()
 	{
-        voiceEndDetected=false; //重置状态，未探测到用户的声音结束。
+	    voiceEndDetected=false; //重置状态，未探测到用户的声音结束。
 
         vibrator = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
         vibrator.vibrate( 100);
 
         if (!setParam()) //参数设置失败。
         {
-          statustextView.setText("请先构建语法。");
+            statustextView.setText("请先构建语法。");
 
-          return;
-        } //if (!setParam())
+            return;
+        } //if (!setParam()) //参数设置失败。
 
         volumeIndicatorprogressBar.setIndeterminate(false); //处于决定状态，以表示音量值。
-        progressBar.setVisibility(View.VISIBLE); //显示进度条。
+        progressBar.setVisibility(View.INVISIBLE); //隐藏显示进度条。
         recognizeResulttextView.setText(R.string.empty); //显示空白内容。
 	} //public void commandRecognizebutton2()
 
@@ -370,20 +363,21 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
      * 参数设置
      *
      * @return 是否设置成功。
-     * */
+     */
     public boolean setParam()
     {
         LogHelper.d(TAG, "setParam.190"); //Debug.
-        boolean result = false; // 设置识别引擎
+        boolean result = false;
+        // 设置识别引擎
 
         return result;
-    } //public boolean setParam()
+    }
 
     /**
      * 计算签名字符串。
      * @param map 参数映射。
      * @return 计算出来的签名字符串。
-     * */
+     */
     private String calculateSign(Map<String, String> map)
     {
         String rawUrl=""; //#原始网址内容。
@@ -399,7 +393,8 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         String question=map.get("question");
 
         String questionEncoded=URLEncoder.encode(question, "UTF-8");
-        rawUrl=rawUrl+"&"+"question="+ questionEncoded;
+
+        rawUrl=rawUrl+"&"+"question="+  questionEncoded;
         rawUrl=rawUrl+"&"+"session="+map.get("session");
         rawUrl=rawUrl+"&"+"time_stamp="+map.get("time_stamp");
         rawUrl=rawUrl+"&"+"app_key="+map.get("app_key");
@@ -409,8 +404,8 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         LogHelper.d(TAG,rawUrl); //#Debug.
 
 
+//            url= URLEncoder.encode(rawUrl, "UTF-8"); //#编码。
 
-//            url= URLEncoder.encode(rawUrl, "UTF-8"); //编码。
         }
         catch (UnsupportedEncodingException e)
         {
@@ -420,14 +415,14 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         url=rawUrl; //记录网址。
 
 
-        LogHelper.d(TAG,url); //Debug.
-
+        LogHelper.d(TAG,url); //#Debug.
 
         MessageDigest md=null;
 
         try
         {
             md=MessageDigest.getInstance("MD5");
+
         }
         catch (NoSuchAlgorithmException e)
         {
@@ -440,9 +435,10 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         StringBuilder hexString= new StringBuilder();
         for (byte aByteData : byteData) {
             String hex = Integer.toHexString(0xff & aByteData);
+
             if (hex.length() == 1) {
                 hexString.append('0');
-                hexString.append(hex);
+//                hexString.append(hex);
             }
 
             hexString.append(hex);
@@ -452,19 +448,16 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         String sign=urlHexDigest.toUpperCase();
 
-
-        LogHelper.d(TAG,"sign: "+sign); //#Debug。
+        LogHelper.d(TAG,"sign: "+sign); //#Debug.
 
             return sign;
-
-
 
 
     } //private String calculateSign(Map<String, String> map)
     
     /**
     * Send chat request to qq chat service.
-    * */
+    */
     private void sendChatRequestQqChat()
     {
       Map<String,String> map = new HashMap<>();
@@ -474,18 +467,17 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
       LogHelper.d(TAG,"sendValidationCode,序列号："+serialNumber); //Debug.
 
-      String userFullName="passwordEditText1.getText().toString()"; //获取用户名。
-
-      LogHelper.d(TAG,"app_id: " + userFullName); //Debug.
+      String userFullName="passwordEditText1.getText().toString()"; //获取密码。
+      map.put("password", userFullName); //添加参数，用户名字。
 
       String app_id="2107629525";
 
       long time_stamp= System.currentTimeMillis()/1000; //时间戳整数。秒。
-      String timeStampString=String.valueOf(time_stamp);
+      String timeStampString=String.valueOf(time_stamp); //时间戳字符串。
       String nonce_str=String.valueOf(time_stamp); //#随机字符串。
       String session=nonce_str; //#会话编号。
       String question=voiceRecognizeResultString; //#问题。
-//        question="妳都是什么时候接客啊？"; //#问题。
+      //        question="妳都是什么时候接客啊？"; //#问题。
       String app_key="EjjAfr2pidPcaIQ2"; //#应用密钥。
 
       map.put("app_id", app_id);
@@ -497,43 +489,37 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
       String sign= calculateSign(map);
       map.put("sign", sign);
-
-      LogHelper.d(TAG,"sign: " + sign); //Debug.
-
-            return sign;
-
-
-    } //private String sendChatRequestQqChat()
+    } // private void sendChatRequestQqChat()
     
     /**
     * Send by button.
-    * */
-	@OnClick(R.id.sendButtonn2)
+    */
+    @OnClick(R.id.sendButtonn2)
     public void sendButtonn2()
     {
       voiceRecognizeResultString = recognizeResulttextView.getText().toString(); // Get the content.
                     // 创建新的用户消息条目
         // messageAdapter.addMessage(new MessageItem(voiceRecognizeResultString, false));
 
-        sendChatRequest(); // Send the request.
+      sendChatRequest(); // Send the request.
     } // public void sendButtonn2()
 
     /**
      * 发送闲聊请求。
-     * */
+     */
     private void sendChatRequest()
     {
-      recognizeResulttextView.setText(""); // Clear the recognize text.
+      recognizeResulttextView.setText(""); // Clear the recognize result or input content.
 
-    //  sendChatRequestQqChat();
+      // sendChatRequestQqChat();
 
-      sendChatRequestTongYi(); // Send the request.
+      sendChatRequestTongYi(); // Send chat reqeuswt to tong yi.
     } //private void sendChatRequest()
 
     /**
      * Report that the operation has failed.
      * @param string 服务器回复的结果说明文字。
-     * */
+     */
     protected void reportOperationFail(String string)
     {
       Toast.makeText(SisterFutureApplication.getAppContext(), string, Toast.LENGTH_LONG).show();   //做一个提示，Failed adding address ,please retry.
@@ -541,7 +527,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
     /**
      * 向通义千问发送请求并处理回复。
-     * */
+     */
     private void sendChatRequestTongYi() 
     {
         if (voiceRecognizeResultString != null && !voiceRecognizeResultString.isEmpty()) 
@@ -550,14 +536,14 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         }
         else 
         {
-          Log.w(TAG, "Voice recognition result is empty or null.");
+            Log.w(TAG, "Voice recognition result is empty or null.");
         }
     }
     
     /**
     * 解析提交问题的结果。
     * @param jsonString JSON格式的回答内容。
-    * */
+    */
     protected void parseTongYiResponse(String jsonString) 
     {
       LogHelper.d(TAG, "JSON Answer: " + jsonString); // Debug.
@@ -569,7 +555,8 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         JSONObject output = jsonResponse.getJSONObject("output");
         JSONArray choices = output.getJSONArray("choices");
         
-        for (int i = 0; i < choices.length(); i++) {
+        for (int i = 0; i < choices.length(); i++) 
+        {
             JSONObject choice = choices.getJSONObject(i);
             JSONObject message = choice.getJSONObject("message");
             String answerIncrement = message.getString("content");
@@ -625,17 +612,17 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 private void scrollToBottom() {
     // 移动到列表的最后一个可见项
-    articleListmyRecyclerView.smoothScrollToPosition(messageAdapter.getItemCount() - 1);
+    // articleListmyRecyclerView.smoothScrollToPosition(messageAdapter.getItemCount() - 1);
 }
 
     /**
-    * 解析提交密码信息的结果。
-    * @param weatherInfo 结果对象。
-    * */
+     * 解析提交密码信息的结果。
+     * @param weatherInfo 结果对象。
+     */
     protected void parseSubmitPasswordResponse(BossResponse weatherInfo)
     {
       String answer=weatherInfo.getData().getAnswer();
-      LogHelper.d(TAG,"Answer: " + answer); //Debug.
+      LogHelper.d(TAG,"Answer: "+answer); //Debug.
 
       statustextView.setText(answer); //显示结果。
 
@@ -648,7 +635,7 @@ private void scrollToBottom() {
         if (null!=mTts) //TTS引擎还在。
         {
             mTts.shutdown(); //关闭。
-        } //if (null!=mTts)
+        } //if (null!=mTts) //TTS引擎还在。
 
         super.onBackPressed();
     } //public void onBackPressed()
@@ -656,12 +643,12 @@ private void scrollToBottom() {
     /**
      * 使用系统自带的TTS接口。
      * @param answer 要发声的内容。
-     * */
+     */
     private void ttsByAndroidSystemTts(String answer)
     {
         try
         {
-            HashMap<String, String> params = new HashMap<String, String>();
+            HashMap<String, String> params = new HashMap<>();
             params.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, textTitle);
             mTts.speak(answer, TextToSpeech.QUEUE_FLUSH, params);
 
@@ -672,57 +659,57 @@ private void scrollToBottom() {
         } //catch(Exception e)
 
 
-
     } //private void ttsByAndroidSystemTts(String answer)
 
     /*!
      * \brief SearchEngineManager::constructGoogleSearchUrl 构造谷歌的搜索网址。
      * \param searchKeyWord 搜索关键字。
-     * \return 针对谷歌的搜索网址的完整URL。
-     * */
+     * \return 针对谷歌的搜索网址。
+     */
     private String constructBiaobeiTtsUrl(String searchKeyWord)
     {
         String biaobeiServiceUrl="http://39.104.162.93:8005/tts"; //!<XiaoINuance服务地址。
-        int speed=5; //语音合成的语速。
+        int speed=5; //!<语音合成的语速。
+
 
         String searchEnginePrefix=biaobeiServiceUrl; //AI引擎的网址前缀。
-        String searchUrlString=searchEnginePrefix; //构造URL。
+
+        String searchUrlString=searchEnginePrefix; //构造搜索路径字符串。
         String searchUrl=searchUrlString; //构造URL。
 
-        Map<String, String> srchQry=new HashMap<String, String>();
-        String srchKyWrdPcntEcd=searchKeyWord; //转换成百分号编码。
-        srchQry.put("text", searchKeyWord); //用户输入的查询词。
-        srchQry.put("user_id", "speech"); //用户ID。
-        srchQry.put("domain", "1"); //源标识。
-        srchQry.put("language", "zh"); //语言标识。
+        Map<String, String> srchQry=new HashMap<>(); //查询对象。
+        String srchKyWrdPcntEcd=(searchKeyWord); //转换成百分号编码。
+        srchQry.put("text", srchKyWrdPcntEcd); //设置查询条件。
+        srchQry.put("user_id", "speech");
+        srchQry.put("domain", "1");
+        srchQry.put("language", "zh");
         srchQry.put("rate", "4"); //设置会话编号。
         srchQry.put("volume", "5"); //设置会话编号。
         srchQry.put("speed", String.valueOf(speed)); //设置语速。
 
-        searchUrl=searchUrl+"? "+ MapUtils.toUrlGetString(srchQry);
+        searchUrl=searchUrl+"?"+ MapUtils.toUrlGetString(srchQry);
 
+//        searchUrl.setQuery (srchQry); //设置查询对象。
 
-        // searchUrl.setQuery (srchQry); //设置查询对象。
-
-        return searchUrl; //QUrl SearchEngineManager::constructGoogleSearchUrl(String searchKeyWord)
-    }
+        return searchUrl;
+    } //QUrl SearchEngineManager::constructGoogleSearchUrl(QString searchKeyWord)
 
 
     /**
      * 使用标贝语音来发声。
      * @param answer 要发声的内容。
-     * */
+     */
     private void ttsByBiaoBei(String answer)
     {
         try
         {
-            HashMap<String, String> params = new HashMap<String, String>();
-            params.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, textTitle);
+            String AudioURL=constructBiaobeiTtsUrl(answer); //构造整个网址。
+            LogHelper.d(TAG, "ttsByBiaoBei, audio url: "+ AudioURL); //Debug.
+
             mediaPlayer.reset(); //重置。
 
-            mediaPlayer.setDataSource(constructBiaobeiTtsUrl(answer));
+            mediaPlayer.setDataSource(AudioURL);
             mediaPlayer.prepare();
-
 
         }
         catch (IllegalArgumentException e)
@@ -742,7 +729,7 @@ private void scrollToBottom() {
 
         }
 
-        mediaPlayer.start(); //播放。
+        mediaPlayer.start();
     } //private void ttsByBiaoBei(String answer)
     
     // 修改ttsSayReply方法
@@ -787,18 +774,18 @@ private void        ttsByFindroidTts(String text)
                     break; //跳出。
 
                 case MotionEvent.ACTION_UP: //松开。
-                    stopRecordbutton2(); //停止录音。
+                    stopRecordbutton2(); //停止识别。
 
                     break; //跳出。
-            } //switch (event.getAction())
+            } //switch (event.getAction()) //根据不同事件进行处理。
 
-            return true; //public boolean onTouch(View v, MotionEvent event)
-        }
+            return true;
+        } //public boolean onTouch(View v, MotionEvent event)
     };
 
     /**
      * 连接信号信号槽。
-     * */
+     */
     private void connectSignals()
     {
         commandRecognizebutton2.setOnTouchListener(commandRecognizeButtonTouchListener); //设置触摸事件监听器。
@@ -928,8 +915,8 @@ private void loadCurrentWallpaperPreview() {
     }
 }
 	/*
-	 此活动正在被创建。
-	 * */
+	  此活动正在被创建。
+	 */
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState); //超类创建。
@@ -955,13 +942,13 @@ private void loadCurrentWallpaperPreview() {
         // 调整预览图片尺寸与屏幕比例一致
         adjustPreviewImageAspectRatio();
 
-	        // TtsManager.getInstance().init(this);
+		        // TtsManager.getInstance().init(this);
 
     mTts=new TextToSpeech(this,this); //创建TTS对象。
 
-    LogHelper.initLocalLogUtil(); // after set the context to utils then //
+    LogHelper.initLocalLogUtil();// after set the context to utils then //
 
-    registerBroadcastReceiver(); //注册广播事件接收器.
+    registerBroadcastReceiver(); //注册广播事件接收器。
 
     // startHttpServer(); //启动HTTP服务器
 
@@ -975,14 +962,14 @@ private void loadCurrentWallpaperPreview() {
         // 初始化通义千问客户端
         // tongYiClient = new TongYiClient();
 
-    checkPermission(); //检查权限。
+        checkPermission(); //检查权限。
 
 
 		connectSignals(); //连接信号信号槽。
 		
-	    // messageAdapter = new MessageAdapter();
+		    // messageAdapter = new MessageAdapter();
     articleListmyRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-    articleListmyRecyclerView.setAdapter(messageAdapter);
+    // articleListmyRecyclerView.setAdapter(messageAdapter);
 
             recognizeResulttextView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -1048,15 +1035,14 @@ private void loadCurrentWallpaperPreview() {
 
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) //安卓6.
       {
-        ArrayList<String> articleInfoArrayList = new ArrayList<String>();
-        // 权限列表。
+        ArrayList<String> articleInfoArrayList = new ArrayList<>(); // 权限列表。
         
         articleInfoArrayList.add(PERMISSION_STORAGE);
         articleInfoArrayList.add(PERMISSION_RECORD_AUDIO);
         articleInfoArrayList.add(PERMISSION_FINE_LOCATIN);
         // articleInfoArrayList.add(PERMISSION_INSTALL_PACKAGE); // 安装应用程序的权限。
         
-        for(String permissionString:articleInfoArrayList) // 一个个检查
+        for(String permissionString: articleInfoArrayList) // 一个个检查
         {
           // Log.d(TAG, CodePosition.newInstance().toString() + ", permission: " + permissionString); // Debug.
           result=(checkSelfPermission(permissionString) == PackageManager.PERMISSION_GRANTED); //录音权限。
@@ -1065,8 +1051,8 @@ private void loadCurrentWallpaperPreview() {
           {
             // Log.d(TAG, CodePosition.newInstance().toString() + ", permission: " + permissionString + ", no permission"); // Debug.
             break; // 没有权限。
-          } // 没有权限。
-        } // for(String permissionString:articleInfoArrayList) // 一个个检查
+          } // if (!result) // 没有权限
+        } // for(String permissionString: articleInfoArrayList) // 一个个检查
       } //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) //安卓6.
       else //旧版本。
       {
@@ -1078,7 +1064,7 @@ private void loadCurrentWallpaperPreview() {
 
     /**
      * 请求获取权限
-     * */
+     */
     private void requestPermission()
     {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) //动态权限
@@ -1096,11 +1082,10 @@ private void loadCurrentWallpaperPreview() {
     } //private void requestPermission()
 
 
-
     
     /**
      * 检查权限。
-     * */
+     */
     private void checkPermission()
     {
       if (hasPermission()) 
@@ -1130,7 +1115,7 @@ private void loadCurrentWallpaperPreview() {
 
     /**
      * 注册广播事件接收器。
-     * */
+     */
     private void registerBroadcastReceiver()
     {
         IntentFilter filter = new IntentFilter();
@@ -1142,20 +1127,20 @@ private void loadCurrentWallpaperPreview() {
         filter.addAction("com.stupidbeauty.dynamicwallpaper.WALLPAPER_CHANGED"); //隐藏软键盘。
 
         // LocalBroadcastManager localBroadcastManager=LocalBroadcastManager.getInstance(this); //Get the local broadcast manager instance.
-        registerReceiver(mBroadcastReceiver, filter); //注册接收器();
+        registerReceiver(mBroadcastReceiver, filter); //注册接收器。
 
 
     } //private void registerBroadcastReceiver()
 
     /**
      * 广播接收器。
-     * */
+     */
     private final BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver()
     {
         @Override
         /*
           接收到广播。
-         * */
+         */
         public void onReceive(Context context, Intent intent)
         {
             String action = intent.getAction(); //获取广播中带的动作字符串。
@@ -1165,23 +1150,22 @@ private void loadCurrentWallpaperPreview() {
             } else if (Constants.Operation.CommitText.equals(action)) {
                 Bundle extras=intent.getExtras(); //获取参数包。
 
-                voiceRecognizeResultString= extras.getString("text"); //记录识别结果.
-
+                voiceRecognizeResultString= extras.getString("text"); //记录识别结果。
 
 
                 recognizeResulttextView.setText(voiceRecognizeResultString); //显示结果。
 
-                sendChatRequest(); //发送闲聊请求();
+                sendChatRequest(); //发送闲聊请求。
 
 
-                startFriendShutDownAt2100Service(); //启动友军"21点关机"的服务。
+                startFriendShutDownAt2100Service(); //启动友军“21点关机”的服务。
             }
         } //public void onReceive(Context context, Intent intent)
     }; //private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver()
 
     /**
      * 启动友军"21点关机"的服务（仿照灵桌面新方式）。
-     * */
+     */
     protected void startFriendShutDownAt2100Service()
     {
         if (shutDownAt2100Logic != null)
@@ -1193,7 +1177,7 @@ private void loadCurrentWallpaperPreview() {
     /**
      * 实现 ShutDownAt2100LogicInterface 接口。
      * 当前 Activity 暂不实现下载安装逻辑，返回 false。
-     * */
+     */
     @Override
     public boolean requestDownloadApk(String shutDownAt2100PackageName)
     {
