@@ -151,6 +151,7 @@ import com.stupidbeauty.x2app.BossResponse;
 import com.stupidbeauty.lanime.Constants;
 // import com.stupidbeauty.lanime.callback.CommitTextCallback;
 // import com.stupidbeauty.lanime.callback.PhoneInformationCallback;
+import java.util.Calendar;
 // import com.stupidbeauty.sisterfuture.adapter.MessageAdapter;
 
 /**
@@ -265,8 +266,29 @@ public void onSetWallpaperClicked() {
 
     }
 
+/**
+* 判断当前是否处于21点关机时段（21:00 - 次日06:00）。
+*
+* @return true表示处于关机时段，不允许切换壁纸；false表示可以正常切换。
+*/
+private boolean isInShutdownPeriod() {
+Calendar cal = Calendar.getInstance();
+int hour = cal.get(Calendar.HOUR_OF_DAY);
+if (hour >= 21) {
+return true;
+}
+if (hour < 6) {
+return true;
+}
+return false;
+}
+
 @OnClick(R.id.refresh_wallpaper_button)
 public void onRefreshWallpaperClicked() {
+if (isInShutdownPeriod()) {
+Toast.makeText(this, "当前是21点关机时段，无法切换壁纸", Toast.LENGTH_SHORT).show();
+return;
+}
         com.stupidbeauty.dynamicwallpaper.utils.FileLogger.i("RefreshBtn", "=== onRefreshWallpaperClicked START ===");
     // 1. 通知壁纸服务 Engine 重新加载图片
     SisterFutureApplication app = (SisterFutureApplication) getApplication();
