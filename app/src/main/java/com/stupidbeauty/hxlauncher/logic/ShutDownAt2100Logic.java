@@ -488,4 +488,5 @@ public class ShutDownAt2100Logic
         } //if (indexBeforeDollar>0) //!<存在美元符号。
     } //private void checkAndCorrectClassNameInLauncherIntent(Intent launchIntent)
 
+
 }
