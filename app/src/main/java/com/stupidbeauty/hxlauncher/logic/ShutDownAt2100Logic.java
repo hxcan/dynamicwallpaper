@@ -385,7 +385,7 @@ public class ShutDownAt2100Logic
     * 否则会与 Helper 库的口径不一致（结束时间、跨天处理都容易写错）。
     * </p>
     * @return true 表示当前处于关机时段，不允许切换壁纸；false 表示可以正常切换。
-    *\/
+    */
     public boolean getExceededShutDownTime()
     {
       if (shutDownAt2100Manager==null)
@@ -393,7 +393,7 @@ public class ShutDownAt2100Logic
         return false;
       }
       return shutDownAt2100Manager.getExceededShutDownTime();
-    } \/\/ public boolean getExceededShutDownTime()
+    } // public boolean getExceededShutDownTime()
 
     /**
      * 保存应用的启动计数数据。
