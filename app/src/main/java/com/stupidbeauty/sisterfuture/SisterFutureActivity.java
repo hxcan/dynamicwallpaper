@@ -267,20 +267,25 @@ public void onSetWallpaperClicked() {
     }
 
 /**
-* 判断当前是否处于21点关机时段（21:00 - 次日06:00）。
+* 判断当前是否处于21点关机时段。
+*
+* <p>统一改为向 Helper 库查询，不再在应用侧自行实现时间判断。
+* 原实现写死了「次日06:00」，与 Helper 库的早晨阈值（07:01）不一致，
+* 会导致 06:00–07:01 段漏放行；同时手动换壁纸与自动换壁纸两条路径
+* 判定标准不同，行为不一致。
+* 动态壁纸的原则是「不直接处理权限与时间判断，只调用 Helper 库」。
+* </p>
 *
 * @return true表示处于关机时段，不允许切换壁纸；false表示可以正常切换。
 */
 private boolean isInShutdownPeriod() {
-Calendar cal = Calendar.getInstance();
-int hour = cal.get(Calendar.HOUR_OF_DAY);
-if (hour >= 21) {
-return true;
-}
-if (hour < 6) {
-return true;
-}
+if (shutDownAt2100Logic == null)
+{
 return false;
+}
+// 触发一次检查，确保内部状态是最新的（Helper 库内部有每分钟一次的节流）。
+shutDownAt2100Logic.checkShutDownTime();
+return shutDownAt2100Logic.getExceededShutDownTime();
 }
 
 @OnClick(R.id.refresh_wallpaper_button)
