@@ -363,9 +363,34 @@ public class MyLiveWallpaperService extends WallpaperService implements ShutDown
       handler.removeCallbacks(drawRunnable);
     }
 
+    /**
+     * 判断当前是否处于21点关机时段。
+     *
+     * <p>统一改为向 Helper 库查询，不再在应用侧自行实现时间判断。
+     * 动态壁纸的原则是「不直接处理权限与时间判断，只调用 Helper 库」。
+     * </p>
+     *
+     * @return true表示处于关机时段，不允许切换壁纸；false表示可以正常切换。
+     * */
+    private boolean isInShutdownPeriod() {
+      if (shutDownAt2100Logic == null)
+      {
+        // 拿不到判定状态时保守拦截（fail-closed）。
+        return true;
+      }
+      shutDownAt2100Logic.checkShutDownTime();
+      return shutDownAt2100Logic.getExceededShutDownTime();
+    }
+
     public void reloadWallpaper(boolean restoreFromSaved)
     {
       com.stupidbeauty.dynamicwallpaper.utils.FileLogger.i("Wallpaper", "=== reloadWallpaper START, restoreFromSaved=" + restoreFromSaved + ", pinned=" + pinned + " ===");
+      // 关机时段内禁止换「新的」壁纸。restoreFromSaved=true 是恢复上次壁纸（开机恢复），不受此限制。
+      if (!restoreFromSaved && isInShutdownPeriod())
+      {
+        com.stupidbeauty.dynamicwallpaper.utils.FileLogger.i("Wallpaper", "[SHUTDOWN] in shutdown period, refuse to reload a new wallpaper");
+        return;
+      }
       reloadStartTime = System.currentTimeMillis(); // 记录开始时间
       
       // 🔍 子任务-4 优化：第一时间检查缓存（在 handler.post 之前，避免等 queryImages）

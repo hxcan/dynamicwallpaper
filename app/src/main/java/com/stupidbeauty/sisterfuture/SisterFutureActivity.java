@@ -281,7 +281,10 @@ public void onSetWallpaperClicked() {
 private boolean isInShutdownPeriod() {
 if (shutDownAt2100Logic == null)
 {
-return false;
+// 拿不到判定状态时保守拦截（fail-closed）：关机时段是限制性规则，
+// 默认行为应为「禁止」，而不是「允许」。
+com.stupidbeauty.dynamicwallpaper.utils.FileLogger.w("ShutdownPeriod", "shutDownAt2100Logic is null, refuse to change wallpaper (fail-closed)");
+return true;
 }
 // 触发一次检查，确保内部状态是最新的（Helper 库内部有每分钟一次的节流）。
 shutDownAt2100Logic.checkShutDownTime();
